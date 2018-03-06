@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		669FF01C204F51D200E899E3 /* M4ATools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; };
+		669FF01D204F51D200E899E3 /* M4ATools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
 		66DBC9CC2035F912008B0933 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9CA2035F912008B0933 /* MainMenu.xib */; };
@@ -23,7 +25,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		669FF01E204F51D200E899E3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				669FF01D204F51D200E899E3 /* M4ATools.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		669FF015204F50E000E899E3 /* M4ATools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M4ATools.framework; path = Carthage/Build/Mac/M4ATools.framework; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9C62035F912008B0933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66DBC9C82035F912008B0933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,6 +51,9 @@
 		66DBC9D32035F912008B0933 /* MusiclerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusiclerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9D72035F912008B0933 /* MusiclerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiclerTests.swift; sourceTree = "<group>"; };
 		66DBC9D92035F912008B0933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66DBC9E32035F9DB008B0933 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		66DBC9E42035F9F8008B0933 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		66DBC9E52035FA27008B0933 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669FF01C204F51D200E899E3 /* M4ATools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +78,14 @@
 		66DBC9BA2035F912008B0933 = {
 			isa = PBXGroup;
 			children = (
+				66DBC9E52035FA27008B0933 /* .gitignore */,
+				669FF014204F508700E899E3 /* Cartfile */,
+				66DBC9E42035F9F8008B0933 /* README.md */,
+				66DBC9E32035F9DB008B0933 /* LICENSE */,
 				66DBC9C52035F912008B0933 /* Musicler */,
 				66DBC9D62035F912008B0933 /* MusiclerTests */,
 				66DBC9C42035F912008B0933 /* Products */,
+				669FF015204F50E000E899E3 /* M4ATools.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +129,7 @@
 				66DBC9BF2035F912008B0933 /* Sources */,
 				66DBC9C02035F912008B0933 /* Frameworks */,
 				66DBC9C12035F912008B0933 /* Resources */,
+				669FF01E204F51D200E899E3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,6 +171,11 @@
 					66DBC9C22035F912008B0933 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					66DBC9D22035F912008B0933 = {
 						CreatedOnToolsVersion = 9.2;
@@ -342,6 +375,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TGZ526AV87;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Musicler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ahyattdev.Musicler;
@@ -358,6 +395,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TGZ526AV87;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Musicler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.ahyattdev.Musicler;
