@@ -7,13 +7,11 @@
 //
 
 import Cocoa
+import M4ATools
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    @IBOutlet weak var window: NSWindow!
-
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -27,6 +25,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handleM4AFile(_ path: String) {
+        let url = URL(fileURLWithPath: path)
+        var m4aFile: M4AFile!
+        var m4aWindow: NSWindow!
+        
+        do {
+            m4aFile = try M4AFile(url: url)
+        } catch {
+            
+        }
         
     }
 

@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		669FF01C204F51D200E899E3 /* M4ATools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; };
 		669FF01D204F51D200E899E3 /* M4ATools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		669FF024205082DD00E899E3 /* MusicDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669FF023205082DD00E899E3 /* MusicDropView.swift */; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
-		66DBC9CC2035F912008B0933 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9CA2035F912008B0933 /* MainMenu.xib */; };
 		66DBC9D82035F912008B0933 /* MusiclerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9D72035F912008B0933 /* MusiclerTests.swift */; };
+		66FC622420519996001BE479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66FC622320519996001BE479 /* Main.storyboard */; };
+		66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622520519A2D001BE479 /* MusicDropViewController.swift */; };
+		66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622720519ACB001BE479 /* MusicDropView.swift */; };
+		66FC622A20519BBD001BE479 /* M4AFileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622920519BBD001BE479 /* M4AFileSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +45,9 @@
 /* Begin PBXFileReference section */
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		669FF015204F50E000E899E3 /* M4ATools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M4ATools.framework; path = Carthage/Build/Mac/M4ATools.framework; sourceTree = "<group>"; };
-		669FF023205082DD00E899E3 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9C62035F912008B0933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66DBC9C82035F912008B0933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		66DBC9CB2035F912008B0933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		66DBC9CD2035F912008B0933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66DBC9CE2035F912008B0933 /* Musicler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Musicler.entitlements; sourceTree = "<group>"; };
 		66DBC9D32035F912008B0933 /* MusiclerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusiclerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +56,10 @@
 		66DBC9E32035F9DB008B0933 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		66DBC9E42035F9F8008B0933 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		66DBC9E52035FA27008B0933 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		66FC622320519996001BE479 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		66FC622520519A2D001BE479 /* MusicDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropViewController.swift; sourceTree = "<group>"; };
+		66FC622720519ACB001BE479 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
+		66FC622920519BBD001BE479 /* M4AFileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M4AFileSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				66DBC9C62035F912008B0933 /* AppDelegate.swift */,
-				669FF023205082DD00E899E3 /* MusicDropView.swift */,
 				66DBC9C82035F912008B0933 /* Assets.xcassets */,
-				66DBC9CA2035F912008B0933 /* MainMenu.xib */,
+				66FC622320519996001BE479 /* Main.storyboard */,
+				66FC622520519A2D001BE479 /* MusicDropViewController.swift */,
+				66FC622720519ACB001BE479 /* MusicDropView.swift */,
+				66FC622920519BBD001BE479 /* M4AFileSheet.swift */,
 				66DBC9CD2035F912008B0933 /* Info.plist */,
 				66DBC9CE2035F912008B0933 /* Musicler.entitlements */,
 			);
@@ -212,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */,
-				66DBC9CC2035F912008B0933 /* MainMenu.xib in Resources */,
+				66FC622420519996001BE479 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FC622A20519BBD001BE479 /* M4AFileSheet.swift in Sources */,
 				66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */,
-				669FF024205082DD00E899E3 /* MusicDropView.swift in Sources */,
+				66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */,
+				66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,17 +260,6 @@
 			targetProxy = 66DBC9D42035F912008B0933 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		66DBC9CA2035F912008B0933 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66DBC9CB2035F912008B0933 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		66DBC9DA2035F912008B0933 /* Debug */ = {

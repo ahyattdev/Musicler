@@ -2,18 +2,23 @@
 //  MusicDropView.swift
 //  Musicler
 //
-//  Created by Andrew Hyatt on 3/7/18.
+//  Created by Andrew Hyatt on 3/8/18.
 //  Copyright © 2018 Andrew Hyatt. All rights reserved.
 //
 
 import Cocoa
 
-class MusicDropView : NSView {
-    
+class MusicDropView: NSView {
+
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
-        
         registerForDraggedTypes([.fileURL])
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+
+        // Drawing code here.
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -43,5 +48,5 @@ class MusicDropView : NSView {
         
         return true
     }
-    
+
 }
