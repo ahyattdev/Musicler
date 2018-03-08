@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		669FF01C204F51D200E899E3 /* M4ATools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; };
 		669FF01D204F51D200E899E3 /* M4ATools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 669FF015204F50E000E899E3 /* M4ATools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		669FF024205082DD00E899E3 /* MusicDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669FF023205082DD00E899E3 /* MusicDropView.swift */; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
 		66DBC9CC2035F912008B0933 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9CA2035F912008B0933 /* MainMenu.xib */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		669FF015204F50E000E899E3 /* M4ATools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M4ATools.framework; path = Carthage/Build/Mac/M4ATools.framework; sourceTree = "<group>"; };
+		669FF023205082DD00E899E3 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9C62035F912008B0933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66DBC9C82035F912008B0933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				66DBC9C62035F912008B0933 /* AppDelegate.swift */,
+				669FF023205082DD00E899E3 /* MusicDropView.swift */,
 				66DBC9C82035F912008B0933 /* Assets.xcassets */,
 				66DBC9CA2035F912008B0933 /* MainMenu.xib */,
 				66DBC9CD2035F912008B0933 /* Info.plist */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */,
+				669FF024205082DD00E899E3 /* MusicDropView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
