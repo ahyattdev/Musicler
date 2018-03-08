@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import M4ATools
 
 class MusicDropView: NSView {
 
@@ -33,17 +34,29 @@ class MusicDropView: NSView {
         if let types = pasteboard.types {
             if types.contains(.fileURL) &&
                 sourceDragMask.contains(NSDragOperation.copy) {
-                if let files = pasteboard.propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray {
+                if let files = pasteboard.propertyList(forType:
+                    NSPasteboard.PasteboardType(rawValue:
+                        "NSFilenamesPboardType")) as? NSArray {
                     for file in files {
-                        if let string = file as? String {
-                            if string.lowercased().hasSuffix(".m4a") {
-                                (NSApplication.shared.delegate as! AppDelegate).handleM4AFile(string)
+                        if let string = file as? String,
+                            string.lowercased().hasSuffix(".m4a") {
+                            let url = URL(fileURLWithPath: string)
+                            do {
+                                let m4aFile = try M4AFile(url: url)
+                                let app = NSApp.delegate as! AppDelegate
+                                app.dropView.performSegue(withIdentifier:
+                                    MusicDropViewController.Segues.M4AFileSheet,
+                                                          sender: m4aFile)
+                            } catch {
+                                
                             }
                         }
                     }
                 }
                 
             }
+            
+
         }
         
         return true
