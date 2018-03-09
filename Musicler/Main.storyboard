@@ -754,6 +754,9 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="okPressed:" target="F1y-iJ-rCa" id="SIS-Vb-lvC"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fhj-TL-PyH">
                                 <rect key="frame" x="256" y="13" width="90" height="32"/>

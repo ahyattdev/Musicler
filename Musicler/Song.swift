@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import M4ATools
 
 class Song {
     
@@ -16,16 +17,16 @@ class Song {
         case notExplicit
     }
     
-    let trackName: String
-    let trackNumber: Int
-    let trackCount: Int
-    let diskNumber: Int
-    let diskCount: Int
-    let artistName: String
-    let collectionName: String
-    let trackExplicit: Explicitness
-    let collectionExplicit: Explicitness
-    let genreName: String
+    var trackName: String
+    var trackNumber: Int
+    var trackCount: Int
+    var diskNumber: Int
+    var diskCount: Int
+    var artistName: String
+    var collectionName: String
+    var trackExplicit: Explicitness
+    var collectionExplicit: Explicitness
+    var genreName: String
     
 
     required init(trackName: String,
@@ -84,4 +85,14 @@ class Song {
                   collectionExplicit: collectionExplicit,
                   genreName: genreName)
     }
+    
+    func writeMetadata(m4aFile: M4AFile) {
+        m4aFile.setStringMetadata(.title, value: trackName)
+        m4aFile.setStringMetadata(.artist, value: artistName)
+        m4aFile.setStringMetadata(.genreCustom, value: genreName)
+        m4aFile.setStringMetadata(.album, value: collectionName)
+        m4aFile.setTwoIntMetadata(.disk, value: (UInt16(diskNumber), UInt16(diskCount)))
+        m4aFile.setTwoIntMetadata(.track, value: (UInt16(trackNumber), UInt16(trackCount)))
+    }
+    
 }
