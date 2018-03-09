@@ -20,9 +20,15 @@ class M4AFileSheet: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        if let fileName = m4aFile.fileName {
+            searchField.stringValue = fileName.replacingOccurrences(of:
+                ".m4a", with: "")
+        }
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
+        let search = searchField.stringValue
+        let results = iTunesSearcher.search(trackName: search)
         
     }
     

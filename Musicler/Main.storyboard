@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Musicler" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -708,6 +708,22 @@
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="MusicDropView" customModule="Musicler" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wQi-Hq-9ww">
+                                <rect key="frame" x="170" y="124" width="140" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drop Music Here" id="2ks-e7-AsO">
+                                    <font key="font" size="18" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wQi-Hq-9ww" secondAttribute="bottom" constant="124" id="39v-tn-Oxa"/>
+                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="124" id="9QK-GX-hRO"/>
+                            <constraint firstAttribute="trailing" secondItem="wQi-Hq-9ww" secondAttribute="trailing" constant="172" id="9nW-7U-KuY"/>
+                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="172" id="tce-x7-kEg"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="F1y-iJ-rCa" kind="sheet" identifier="M4AFileSheet" id="Hoe-MK-Uv6"/>
@@ -777,7 +793,7 @@ Gw
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFn-ie-4l7">
                                 <rect key="frame" x="20" y="219" width="410" height="150"/>
                                 <clipView key="contentView" id="NGt-E3-7RG">
-                                    <rect key="frame" x="1" y="23" width="408" height="126"/>
+                                    <rect key="frame" x="1" y="0.0" width="408" height="149"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="407-J3-20P" viewBased="YES" id="Ona-hw-tij">
@@ -881,7 +897,7 @@ Gw
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-be-oGQ">
                                 <rect key="frame" x="20" y="61" width="410" height="150"/>
                                 <clipView key="contentView" id="lTy-za-Ird">
-                                    <rect key="frame" x="1" y="23" width="408" height="126"/>
+                                    <rect key="frame" x="1" y="0.0" width="408" height="149"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Fay-hO-FQ7" viewBased="YES" id="BBY-5S-d2A">
