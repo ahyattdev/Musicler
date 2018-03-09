@@ -27,8 +27,9 @@ class iTunesSearcher {
             let json = try JSON.init(data: data)
             let jsonResults = json["results"].arrayValue
             for songJSON in jsonResults {
-                let song = Song(json: songJSON.dictionaryValue)
-                results.append(song)
+                if let song = Song(json: songJSON.dictionaryValue) {
+                    results.append(song)
+                }
             }
         } catch {
             

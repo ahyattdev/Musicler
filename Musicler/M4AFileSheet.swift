@@ -17,6 +17,8 @@ class M4AFileSheet: NSViewController {
     @IBOutlet weak var searchTableView: NSTableView!
     @IBOutlet weak var songTableView: NSTableView!
     
+    var selectedResult: Song?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -29,7 +31,7 @@ class M4AFileSheet: NSViewController {
     @IBAction func searchPressed(_ sender: NSButton) {
         let search = searchField.stringValue
         let results = iTunesSearcher.search(trackName: search)
-        
+        selectedResult = songs[0]
     }
     
 }
