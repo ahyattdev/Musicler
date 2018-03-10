@@ -32,6 +32,8 @@ class M4AFileSheet: NSViewController {
         let search = searchField.stringValue
         let results = iTunesSearcher.search(trackName: search)
         selectedResult = results[0]
+        selectedResult!.fetchAll()
+        //selectedResult!.writeMetadata(m4aFile: m4aFile)
     }
     
     @IBAction func okPressed(_ sender: NSButton) {

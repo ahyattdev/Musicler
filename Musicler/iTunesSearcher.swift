@@ -16,7 +16,7 @@ class iTunesSearcher {
         guard let escaped = trackName.addingPercentEncoding(
             withAllowedCharacters: []),
             let url = URL(string:
-                "https://itunes.apple.com/search?term=\(escaped)&country=us")
+                "https://itunes.apple.com/search?term=\(escaped)&country=us&media=music&entity=song")
             else {
             return results
         }
