@@ -9,7 +9,7 @@
 import Cocoa
 import M4ATools
 
-class M4AFileSheet: NSViewController {
+class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
     var m4aFile: M4AFile!
     
@@ -19,6 +19,9 @@ class M4AFileSheet: NSViewController {
     
     var selectedResult: iTunesResult?
     var results = [iTunesResult]()
+    
+    @IBOutlet weak var trackTableView: NSTableView!
+    @IBOutlet weak var resultsTableView: NSTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,10 @@ class M4AFileSheet: NSViewController {
     @IBAction func searchPressed(_ sender: NSButton) {
         let search = searchField.stringValue
         results = iTunesSearcher.search(trackName: search)
-        selectedResult = results[0]
+        if results.count > 0 {
+            selectedResult = results[0]
+        }
+        resultsTableView.reloadData()
         //selectedResult!.fetchAll()
         //selectedResult!.writeMetadata(m4aFile: m4aFile)
     }
@@ -41,6 +47,33 @@ class M4AFileSheet: NSViewController {
        // if let song = selectedResult {
             //song.writeMetadata(m4aFile: m4aFile)
        // }
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        if tableView == resultsTableView {
+            return results.count
+        } else {
+            return -1
+        }
+    }
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        let result = results[row]
+        switch tableColumn!.title {
+        case "Track":
+            if let name = result.track.trackName {
+                return name
+            }
+        case "Artist":
+            return result.track.artistName
+        case "Collection":
+            if let name = result.track.collectionName {
+                return name
+            }
+        default:
+            return "Unknown"
+        }
+        return result.track.trackName!
     }
     
 }
