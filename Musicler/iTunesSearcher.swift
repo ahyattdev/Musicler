@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 class iTunesSearcher {
     
-    static func search(trackName: String) -> [Song] {
-        var results = [Song]()
+    static func search(trackName: String) -> [iTunesResult] {
+        var results = [iTunesResult]()
         guard let escaped = trackName.addingPercentEncoding(
             withAllowedCharacters: []),
             let url = URL(string:
@@ -24,17 +23,21 @@ class iTunesSearcher {
         
         do {
             let data = try Data.init(contentsOf: url)
-            let json = try JSON.init(data: data)
-            let jsonResults = json["results"].arrayValue
-            for songJSON in jsonResults {
-                if let song = Song(json: songJSON.dictionaryValue) {
-                    results.append(song)
-                }
+            
+            let json = try JSONDecoder().decode(Wrapper<Track>.self, from: data)
+            
+            for track in json.results {
+                let result = iTunesResult(track: track)
+                results.append(result)
             }
         } catch {
-            
+            print("Failed to decode JSON!")
         }
         return results
+    }
+    
+    func loadMoreMetadata(result: iTunesResult) {
+        
     }
     
 }

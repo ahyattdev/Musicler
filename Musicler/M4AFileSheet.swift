@@ -17,7 +17,8 @@ class M4AFileSheet: NSViewController {
     @IBOutlet weak var searchTableView: NSTableView!
     @IBOutlet weak var songTableView: NSTableView!
     
-    var selectedResult: Song?
+    var selectedResult: iTunesResult?
+    var results = [iTunesResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +31,16 @@ class M4AFileSheet: NSViewController {
     
     @IBAction func searchPressed(_ sender: NSButton) {
         let search = searchField.stringValue
-        let results = iTunesSearcher.search(trackName: search)
+        results = iTunesSearcher.search(trackName: search)
         selectedResult = results[0]
-        selectedResult!.fetchAll()
+        //selectedResult!.fetchAll()
         //selectedResult!.writeMetadata(m4aFile: m4aFile)
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
-        if let song = selectedResult {
-            song.writeMetadata(m4aFile: m4aFile)
-        }
+       // if let song = selectedResult {
+            //song.writeMetadata(m4aFile: m4aFile)
+       // }
     }
     
 }

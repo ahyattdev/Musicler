@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 import M4ATools
 
 class Song {
@@ -64,52 +63,52 @@ class Song {
         self.collectionID = collectionID
     }
     
-    convenience init?(json: [String: JSON]){
-        guard let trackName = json["trackName"]?.stringValue,
-            let trackNumber = json["trackNumber"]?.intValue,
-            let trackCount = json["trackCount"]?.intValue,
-            let diskNumber = json["discNumber"]?.int,
-            let diskCount = json["discCount"]?.int,
-            let artistName = json["artistName"]?.stringValue,
-            let collectionName = json["collectionName"]?.stringValue,
-            let trackExplicitString = json["trackExplicitness"]?.stringValue,
-            let collectionExplicitString = json["collectionExplicitness"]?.stringValue,
-            let genreName = json["primaryGenreName"]?.stringValue,
-            let releaseDate = json["releaseDate"]?.stringValue,
-            let trackID = json["trackId"]?.stringValue,
-            let collectionID = json["collectionId"]?.stringValue
-        
-        else {
-            return nil
-        }
-        
-        let trackExplicit: Explicitness = trackExplicitString == "explicit"
-            ? .explicit : .notExplicit
-        let collectionExplicit: Explicitness = collectionExplicitString == "explicit"
-            ? .explicit : .notExplicit
-        
-        self.init(trackName: trackName,
-                  trackNumber: trackNumber,
-                  trackCount: trackCount,
-                  diskNumber: diskNumber,
-                  diskCount: diskCount,
-                  artistName: artistName,
-                  collectionName: collectionName,
-                  trackExplicit: trackExplicit,
-                  collectionExplicit: collectionExplicit,
-                  genreName: genreName,
-                  releaseDate: releaseDate,
-                  trackID: trackID,
-                  collectionID: collectionID
-        )
-    }
+//    convenience init?(json: [String: JSON]){
+//        guard let trackName = json["trackName"]?.stringValue,
+//            let trackNumber = json["trackNumber"]?.intValue,
+//            let trackCount = json["trackCount"]?.intValue,
+//            let diskNumber = json["discNumber"]?.int,
+//            let diskCount = json["discCount"]?.int,
+//            let artistName = json["artistName"]?.stringValue,
+//            let collectionName = json["collectionName"]?.stringValue,
+//            let trackExplicitString = json["trackExplicitness"]?.stringValue,
+//            let collectionExplicitString = json["collectionExplicitness"]?.stringValue,
+//            let genreName = json["primaryGenreName"]?.stringValue,
+//            let releaseDate = json["releaseDate"]?.stringValue,
+//            let trackID = json["trackId"]?.stringValue,
+//            let collectionID = json["collectionId"]?.stringValue
+//
+//        else {
+//            return nil
+//        }
+//
+//        let trackExplicit: Explicitness = trackExplicitString == "explicit"
+//            ? .explicit : .notExplicit
+//        let collectionExplicit: Explicitness = collectionExplicitString == "explicit"
+//            ? .explicit : .notExplicit
+//
+//        self.init(trackName: trackName,
+//                  trackNumber: trackNumber,
+//                  trackCount: trackCount,
+//                  diskNumber: diskNumber,
+//                  diskCount: diskCount,
+//                  artistName: artistName,
+//                  collectionName: collectionName,
+//                  trackExplicit: trackExplicit,
+//                  collectionExplicit: collectionExplicit,
+//                  genreName: genreName,
+//                  releaseDate: releaseDate,
+//                  trackID: trackID,
+//                  collectionID: collectionID
+//        )
+//    }
     
     func fetchAll() {
-        guard /*let trackIDURL = URL(string: "https://itunes.apple.com/lookup?id=\(trackID)"),*/
-            let collectionIDURL = URL(string: "https://itunes.apple.com/lookup?id=\(collectionID)") else {
-            print("\(trackName): Failed to create URL.")
-            return
-        }
+     //   guard /*let trackIDURL = URL(string: "https://itunes.apple.com/lookup?id=\(trackID)"),*/
+            //let collectionIDURL = URL(string: "https://itunes.apple.com/lookup?id=\(collectionID)") else {
+      //      print("\(trackName): Failed to create URL.")
+      //      return
+        //}
         
         do {
 //            let trackIDData = try Data.init(contentsOf: trackIDURL)
@@ -122,18 +121,18 @@ class Song {
 //            }
 //            copyright = trackResults[0]["copyright"].stringValue
             
-            let collectionIDData = try Data(contentsOf: collectionIDURL)
-            let collectionJSON = try JSON(data: collectionIDData)
-            let collectionResults = collectionJSON["results"].arrayValue
-            
-            guard collectionResults.count == 1 else {
-                print("\(trackName): Failed to fetch album artist.")
-                return
-            }
-            copyright = collectionResults[0]["copyright"].stringValue
-            albumArtist = collectionResults[0]["artistName"].stringValue
-        } catch {
-            print("\(trackName): Error fetching data!")
+//            let collectionIDData = try Data(contentsOf: collectionIDURL)
+//            let collectionJSON = try JSON(data: collectionIDData)
+//            let collectionResults = collectionJSON["results"].arrayValue
+//
+//            guard collectionResults.count == 1 else {
+//                print("\(trackName): Failed to fetch album artist.")
+//                return
+//            }
+//            copyright = collectionResults[0]["copyright"].stringValue
+//            albumArtist = collectionResults[0]["artistName"].stringValue
+//        } catch {
+//            print("\(trackName): Error fetching data!")
         }
     }
     

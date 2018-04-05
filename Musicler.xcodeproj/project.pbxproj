@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66C98EF62051FEF9008FDE02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EF02051FEE5008FDE02 /* SwiftyJSON.framework */; };
-		66C98EF72051FEF9008FDE02 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EF02051FEE5008FDE02 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		661C9F8B2075A6FA00C9E5B7 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F8A2075A6FA00C9E5B7 /* Track.swift */; };
+		661C9F8D2075A71A00C9E5B7 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F8C2075A71A00C9E5B7 /* Artist.swift */; };
+		661C9F8F2075A72300C9E5B7 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F8E2075A72300C9E5B7 /* Collection.swift */; };
+		661C9F912075A7E700C9E5B7 /* iTunesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F902075A7E700C9E5B7 /* iTunesResult.swift */; };
+		661C9F932075A8E200C9E5B7 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F922075A8E200C9E5B7 /* Wrapper.swift */; };
 		66C98EF82051FEF9008FDE02 /* M4ATools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EEE2051FED1008FDE02 /* M4ATools.framework */; };
 		66C98EF92051FEF9008FDE02 /* M4ATools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EEE2051FED1008FDE02 /* M4ATools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */; };
@@ -39,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				66C98EF72051FEF9008FDE02 /* SwiftyJSON.framework in Embed Frameworks */,
 				66C98EF92051FEF9008FDE02 /* M4ATools.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -48,9 +50,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		661C9F8A2075A6FA00C9E5B7 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		661C9F8C2075A71A00C9E5B7 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		661C9F8E2075A72300C9E5B7 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		661C9F902075A7E700C9E5B7 /* iTunesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesResult.swift; sourceTree = "<group>"; };
+		661C9F922075A8E200C9E5B7 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		66C98EEE2051FED1008FDE02 /* M4ATools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M4ATools.framework; path = Carthage/Build/Mac/M4ATools.framework; sourceTree = "<group>"; };
-		66C98EF02051FEE5008FDE02 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearcher.swift; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9C62035F912008B0933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C98EF62051FEF9008FDE02 /* SwiftyJSON.framework in Frameworks */,
 				66C98EF82051FEF9008FDE02 /* M4ATools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +130,12 @@
 				66DBC9CD2035F912008B0933 /* Info.plist */,
 				66DBC9CE2035F912008B0933 /* Musicler.entitlements */,
 				66FC622B2051FC1E001BE479 /* Song.swift */,
+				661C9F8C2075A71A00C9E5B7 /* Artist.swift */,
+				661C9F8E2075A72300C9E5B7 /* Collection.swift */,
+				661C9F8A2075A6FA00C9E5B7 /* Track.swift */,
+				661C9F922075A8E200C9E5B7 /* Wrapper.swift */,
 				66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */,
+				661C9F902075A7E700C9E5B7 /* iTunesResult.swift */,
 			);
 			path = Musicler;
 			sourceTree = "<group>";
@@ -142,7 +152,6 @@
 		66FC622F2051FE77001BE479 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66C98EF02051FEE5008FDE02 /* SwiftyJSON.framework */,
 				66C98EEE2051FED1008FDE02 /* M4ATools.framework */,
 			);
 			name = Frameworks;
@@ -194,7 +203,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Andrew Hyatt";
 				TargetAttributes = {
 					66DBC9C22035F912008B0933 = {
@@ -256,12 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661C9F8F2075A72300C9E5B7 /* Collection.swift in Sources */,
 				66FC622A20519BBD001BE479 /* M4AFileSheet.swift in Sources */,
+				661C9F912075A7E700C9E5B7 /* iTunesResult.swift in Sources */,
 				66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */,
 				66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */,
 				66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */,
 				66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */,
 				66FC622C2051FC1E001BE479 /* Song.swift in Sources */,
+				661C9F932075A8E200C9E5B7 /* Wrapper.swift in Sources */,
+				661C9F8D2075A71A00C9E5B7 /* Artist.swift in Sources */,
+				661C9F8B2075A6FA00C9E5B7 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +312,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -305,6 +320,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -355,6 +371,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -362,6 +379,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
