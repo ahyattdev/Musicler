@@ -35,6 +35,10 @@ struct iTunesResult {
         m4aFile.setStringMetadata(.copyright, value: collection.copyright)
         m4aFile.setStringMetadata(.albumArtist, value: collection.artistName)
         
+        // Set sorting for album, artist, and name
+        m4aFile.setStringMetadata(.sortingAlbum, value: track.collectionName)
+        m4aFile.setStringMetadata(.sortingArtist, value: track.artistName)
+        m4aFile.setStringMetadata(.sortingTitle, value: track.trackName)
         if track.trackExplicitness == "explicit" {
             m4aFile.setUInt8Metadata(.rating, value: 0b00000001)
         }

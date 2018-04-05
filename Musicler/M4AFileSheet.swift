@@ -46,9 +46,9 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
-       // if let song = selectedResult {
-            //song.writeMetadata(m4aFile: m4aFile)
-       // }
+        let selectedResult = results[resultsTableView.selectedRow]
+        selectedResult.writeMetadata(m4aFile: m4aFile)
+        dismissViewController(self)
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
