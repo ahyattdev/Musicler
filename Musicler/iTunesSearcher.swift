@@ -10,12 +10,23 @@ import Foundation
 
 class iTunesSearcher {
     
-    static func search(trackName: String) -> [iTunesResult] {
+    var trackName = "" {
+        didSet {
+            guard let escapedName = trackName.addingPercentEncoding(
+                withAllowedCharacters: []) else {
+                    self.escapedName = "error"
+                    return
+            }
+            self.escapedName = escapedName
+        }
+    }
+    
+    private var escapedName = ""
+    
+    func search() -> [iTunesResult] {
         var results = [iTunesResult]()
-        guard let escaped = trackName.addingPercentEncoding(
-            withAllowedCharacters: []),
-            let url = URL(string:
-                "https://itunes.apple.com/search?term=\(escaped)&country=us&media=music&entity=song")
+        guard let url = URL(string:
+                "https://itunes.apple.com/search?term=\(escapedName)&country=us&media=music&entity=song")
             else {
             return results
         }
@@ -36,8 +47,23 @@ class iTunesSearcher {
         return results
     }
     
-    func loadMoreMetadata(result: iTunesResult) {
-        
+    func loadMoreMetadata(result: iTunesResult) -> iTunesResult {
+        var result = result
+        guard let collectionURL = URL(string: "https://itunes.apple.com/lookup?id=\(result.track.collectionId)") else {
+            print("Failed to load collection URL")
+            return result
+        }
+        do {
+            let data = try Data.init(contentsOf: collectionURL)
+            let json = try JSONDecoder().decode(Wrapper<Collection>.self, from: data)
+            
+            if json.results.count == 1 {
+                result.collection = json.results[0]
+            }
+        } catch {
+            print("Failed to decode JSON! \(error)")
+        }
+        return result
     }
     
 }

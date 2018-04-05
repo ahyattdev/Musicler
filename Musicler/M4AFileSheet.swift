@@ -17,11 +17,18 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     @IBOutlet weak var searchTableView: NSTableView!
     @IBOutlet weak var songTableView: NSTableView!
     
-    var selectedResult: iTunesResult?
     var results = [iTunesResult]()
+    
+    var itunesSearcher = iTunesSearcher()
     
     @IBOutlet weak var trackTableView: NSTableView!
     @IBOutlet weak var resultsTableView: NSTableView!
+    
+    @IBOutlet weak var okButton: NSButton!
+    
+    override func viewWillAppear() {
+        okButton.isEnabled = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +40,9 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
-        let search = searchField.stringValue
-        results = iTunesSearcher.search(trackName: search)
-        if results.count > 0 {
-            selectedResult = results[0]
-        }
+        itunesSearcher.trackName = searchField.stringValue
+        results = itunesSearcher.search()
         resultsTableView.reloadData()
-        //selectedResult!.fetchAll()
-        //selectedResult!.writeMetadata(m4aFile: m4aFile)
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
@@ -58,22 +60,37 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        let result = results[row]
-        switch tableColumn!.title {
-        case "Track":
-            if let name = result.track.trackName {
-                return name
+        if tableView == resultsTableView {
+            let result = results[row]
+            switch tableColumn!.title {
+            case "Track":
+                return result.track.trackName
+            case "Artist":
+                return result.track.artistName
+            case "Collection":
+                return result.track.collectionName
+            default:
+                return "Unknown"
             }
-        case "Artist":
-            return result.track.artistName
-        case "Collection":
-            if let name = result.track.collectionName {
-                return name
-            }
-        default:
-            return "Unknown"
+        } else {
+            return nil
         }
-        return result.track.trackName!
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        if tableView == resultsTableView {
+            okButton.isEnabled = true
+            return true
+        } else {
+            return true
+        }
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if let table = notification.object as? NSTableView, table == resultsTableView {
+            let result = results[resultsTableView.selectedRow]
+            results[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+        }
     }
     
 }

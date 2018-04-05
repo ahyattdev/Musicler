@@ -994,6 +994,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="okButton" destination="uga-nb-Wl1" id="Ttw-VW-xmO"/>
                         <outlet property="resultsTableView" destination="Ona-hw-tij" id="rle-94-Wly"/>
                         <outlet property="searchField" destination="OmG-am-VjR" id="d0H-Vb-CE8"/>
                         <outlet property="searchTableView" destination="Ona-hw-tij" id="Cua-bs-VDG"/>
