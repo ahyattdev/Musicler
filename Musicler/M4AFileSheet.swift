@@ -64,7 +64,11 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             let result = results[row]
             switch tableColumn!.title {
             case "Track":
-                return result.track.trackName
+                var name = result.track.trackName
+                if result.track.trackExplicitness == "explicit" {
+                    name += " (E)"
+                }
+                return name
             case "Artist":
                 return result.track.artistName
             case "Collection":
