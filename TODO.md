@@ -1,0 +1,5 @@
+- Failed to decode JSON! on search for "Unwell"
+- Crash when clicking the column headers, no sorting
+- Give it an open menu
+- Cycle through iTunes library files
+- Drag to dock icon
