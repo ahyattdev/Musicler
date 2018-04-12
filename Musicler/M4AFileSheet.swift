@@ -46,9 +46,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
-        let selectedResult = results[resultsTableView.selectedRow]
-        selectedResult.writeMetadata(m4aFile: m4aFile)
-        dismissViewController(self)
+        let row = resultsTableView.selectedRow
+        if row > 0 {
+            let selectedResult = results[resultsTableView.selectedRow]
+            selectedResult.writeMetadata(m4aFile: m4aFile)
+            dismissViewController(self)
+        }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -90,10 +93,16 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
     }
     
+    func tableView(_ tableView: NSTableView, shouldSelect tableColumn: NSTableColumn?) -> Bool {
+        return false
+    }
+    
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let table = notification.object as? NSTableView, table == resultsTableView {
-            let result = results[resultsTableView.selectedRow]
-            results[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+            if resultsTableView.selectedRow > 0 {
+                let result = results[resultsTableView.selectedRow]
+                results[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+            }
         }
     }
     

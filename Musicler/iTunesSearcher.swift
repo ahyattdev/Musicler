@@ -49,19 +49,21 @@ class iTunesSearcher {
     
     func loadMoreMetadata(result: iTunesResult) -> iTunesResult {
         var result = result
-        guard let collectionURL = URL(string: "https://itunes.apple.com/lookup?id=\(result.track.collectionId)") else {
-            print("Failed to load collection URL")
-            return result
-        }
-        do {
-            let data = try Data.init(contentsOf: collectionURL)
-            let json = try JSONDecoder().decode(Wrapper<Collection>.self, from: data)
-            
-            if json.results.count == 1 {
-                result.collection = json.results[0]
+        if result.collection == nil {
+            guard let collectionURL = URL(string: "https://itunes.apple.com/lookup?id=\(result.track.collectionId)") else {
+                print("Failed to load collection URL")
+                return result
             }
-        } catch {
-            print("Failed to decode JSON! \(error)")
+            do {
+                let data = try Data.init(contentsOf: collectionURL)
+                let json = try JSONDecoder().decode(Wrapper<Collection>.self, from: data)
+                
+                if json.results.count == 1 {
+                    result.collection = json.results[0]
+                }
+            } catch {
+                print("Failed to decode JSON! \(error)")
+            }
         }
         return result
     }
