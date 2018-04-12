@@ -42,7 +42,7 @@ class iTunesSearcher {
                 results.append(result)
             }
         } catch {
-            print("Failed to decode JSON!")
+            print("Failed to decode JSON! \(error)")
         }
         return results
     }

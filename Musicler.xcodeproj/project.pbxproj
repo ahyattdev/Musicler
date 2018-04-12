@@ -22,7 +22,6 @@
 		66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622520519A2D001BE479 /* MusicDropViewController.swift */; };
 		66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622720519ACB001BE479 /* MusicDropView.swift */; };
 		66FC622A20519BBD001BE479 /* M4AFileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622920519BBD001BE479 /* M4AFileSheet.swift */; };
-		66FC622C2051FC1E001BE479 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622B2051FC1E001BE479 /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,11 +68,11 @@
 		66DBC9E32035F9DB008B0933 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		66DBC9E42035F9F8008B0933 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		66DBC9E52035FA27008B0933 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		66F91508207FDFC200400F7C /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		66FC622320519996001BE479 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66FC622520519A2D001BE479 /* MusicDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropViewController.swift; sourceTree = "<group>"; };
 		66FC622720519ACB001BE479 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
 		66FC622920519BBD001BE479 /* M4AFileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M4AFileSheet.swift; sourceTree = "<group>"; };
-		66FC622B2051FC1E001BE479 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				66DBC9E52035FA27008B0933 /* .gitignore */,
-				669FF014204F508700E899E3 /* Cartfile */,
-				66DBC9E42035F9F8008B0933 /* README.md */,
 				66DBC9E32035F9DB008B0933 /* LICENSE */,
+				66DBC9E42035F9F8008B0933 /* README.md */,
+				66F91508207FDFC200400F7C /* TODO.md */,
+				669FF014204F508700E899E3 /* Cartfile */,
 				66DBC9C52035F912008B0933 /* Musicler */,
 				66DBC9D62035F912008B0933 /* MusiclerTests */,
 				66DBC9C42035F912008B0933 /* Products */,
@@ -129,7 +129,6 @@
 				66FC622920519BBD001BE479 /* M4AFileSheet.swift */,
 				66DBC9CD2035F912008B0933 /* Info.plist */,
 				66DBC9CE2035F912008B0933 /* Musicler.entitlements */,
-				66FC622B2051FC1E001BE479 /* Song.swift */,
 				661C9F8C2075A71A00C9E5B7 /* Artist.swift */,
 				661C9F8E2075A72300C9E5B7 /* Collection.swift */,
 				661C9F8A2075A6FA00C9E5B7 /* Track.swift */,
@@ -272,7 +271,6 @@
 				66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */,
 				66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */,
 				66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */,
-				66FC622C2051FC1E001BE479 /* Song.swift in Sources */,
 				661C9F932075A8E200C9E5B7 /* Wrapper.swift in Sources */,
 				661C9F8D2075A71A00C9E5B7 /* Artist.swift in Sources */,
 				661C9F8B2075A6FA00C9E5B7 /* Track.swift in Sources */,

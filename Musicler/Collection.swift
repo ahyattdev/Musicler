@@ -22,7 +22,7 @@ struct Collection : Codable {
     let collectionViewUrl: URL
     let artworkUrl60: URL
     let artworkUrl100: URL
-    let collectionPrice: Double
+    let collectionPrice: Double?
     let collectionExplicitness: String
     let contentAdvisoryRating: String?
     let trackCount: Int

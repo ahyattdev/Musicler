@@ -20,15 +20,15 @@ struct Track : Codable {
     let trackName: String
     let collectionCensoredName: String
     let trackCensoredName: String
-    let artistViewUrl: URL
+    let artistViewUrl: URL?
     let collectionViewUrl: URL
     let trackViewUrl: URL
-    let previewUrl: URL
+    let previewUrl: URL?
     let artworkUrl30: URL
     let artworkUrl60: URL
     let artworkUrl100: URL
-    let collectionPrice: Double
-    let trackPrice: Double
+    let collectionPrice: Double?
+    let trackPrice: Double?
     let releaseDate: String
     let collectionExplicitness: String
     let trackExplicitness: String

@@ -1,4 +1,4 @@
-- Failed to decode JSON! on search for "Unwell"
+- ~~Failed to decode JSON! on search for "Unwell", also "Treasure"~~
 - Crash when clicking the column headers, no sorting
 - Give it an open menu
 - Cycle through iTunes library files
