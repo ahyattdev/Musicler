@@ -1,5 +1,7 @@
 - ~~Failed to decode JSON! on search for "Unwell", also "Treasure"~~
-- Crash when clicking the column headers, no sorting
+- ~~Crash when clicking the column headers~~
+- Sorting for search results
 - Give it an open menu
 - Cycle through iTunes library files
 - Drag to dock icon
+- Proper icons for right/left buttons (like iTunes)

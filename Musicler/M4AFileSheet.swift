@@ -26,6 +26,9 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     @IBOutlet weak var okButton: NSButton!
     
+    @IBOutlet weak var leftButton: NSButton!
+    @IBOutlet weak var rightButton: NSButton!
+    
     override func viewWillAppear() {
         okButton.isEnabled = false
     }
@@ -52,6 +55,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             selectedResult.writeMetadata(m4aFile: m4aFile)
             dismissViewController(self)
         }
+    }
+    
+    @IBAction func leftButtonPressed(_ sender: NSButton) {
+    }
+    
+    @IBAction func rightButtonPressed(_ sender: NSButton) {
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
