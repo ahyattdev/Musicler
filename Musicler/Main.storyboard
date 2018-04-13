@@ -726,6 +726,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dropView" destination="m2S-Jp-Qdl" id="Esv-gQ-8ku"/>
                         <segue destination="F1y-iJ-rCa" kind="sheet" identifier="M4AFileSheet" id="Hoe-MK-Uv6"/>
                     </connections>
                 </viewController>

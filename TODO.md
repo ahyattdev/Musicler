@@ -3,5 +3,7 @@
 - Sorting for search results
 - Give it an open menu
 - Cycle through iTunes library files
-- Drag to dock icon
+- ~~Drag to dock icon~~
 - Proper icons for right/left buttons (like iTunes)
+- App Icon
+- M4A File icon

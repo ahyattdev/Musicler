@@ -26,4 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    func application(_ sender: NSApplication, openFiles filenames: [String]) {
+        dropView.dropView.openFiles(filenames)
+    }
+    
 }

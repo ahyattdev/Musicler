@@ -61,5 +61,21 @@ class MusicDropView: NSView {
         
         return true
     }
+    
+    func openFiles(_ filenames: [String]) {
+        for file in filenames {
+            let url = URL(fileURLWithPath: file)
+            do {
+                let m4aFile = try M4AFile(url: url)
+                let app = NSApp.delegate as! AppDelegate
+                app.dropView.performSegue(withIdentifier:
+                    MusicDropViewController.Segues.M4AFileSheet,
+                                          sender: m4aFile)
+            } catch {
+                printView("Error opening M4A file: \(error)")
+            }
+            
+        }
+    }
 
 }

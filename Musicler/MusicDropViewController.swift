@@ -11,6 +11,8 @@ import M4ATools
 
 class MusicDropViewController: NSViewController {
     
+    @IBOutlet var dropView: MusicDropView!
+    
     struct Segues {
         
         private init() {
