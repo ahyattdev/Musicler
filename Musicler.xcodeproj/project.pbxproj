@@ -69,6 +69,7 @@
 		66DBC9E42035F9F8008B0933 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		66DBC9E52035FA27008B0933 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		66F91508207FDFC200400F7C /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		66F915222084188A00400F7C /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
 		66FC622320519996001BE479 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66FC622520519A2D001BE479 /* MusicDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropViewController.swift; sourceTree = "<group>"; };
 		66FC622720519ACB001BE479 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				66DBC9E42035F9F8008B0933 /* README.md */,
 				66F91508207FDFC200400F7C /* TODO.md */,
 				669FF014204F508700E899E3 /* Cartfile */,
+				66F915222084188A00400F7C /* Icons */,
 				66DBC9C52035F912008B0933 /* Musicler */,
 				66DBC9D62035F912008B0933 /* MusiclerTests */,
 				66DBC9C42035F912008B0933 /* Products */,
