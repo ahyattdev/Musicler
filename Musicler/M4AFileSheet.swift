@@ -71,6 +71,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             let result = state.selectedResult!
             result.writeMetadata(m4aFile: state.file)
         }
+        dismissViewController(self)
     }
     
     @IBAction func previousFile(_ sender: NSButton) {
@@ -192,6 +193,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         if tableView == resultsTableView {
+            state.searchResults[row] = itunesSearcher.loadMoreMetadata(result: state.searchResults[row])
             state.selectedResult = state.searchResults[row]
             state.selectedRow = row
             reloadButtons()
@@ -210,8 +212,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             if resultsTableView.selectedRow >= 0 {
                 state.selectedRow = resultsTableView.selectedRow
                 let result = state.searchResults[resultsTableView.selectedRow]
-                state.selectedResult = result
                 state.searchResults[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+                state.selectedResult = result
                 reloadButtons()
             } else {
                 state.selectedRow = nil
