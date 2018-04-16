@@ -18,6 +18,7 @@
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
 		66DBC9D82035F912008B0933 /* MusiclerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9D72035F912008B0933 /* MusiclerTests.swift */; };
+		66F915242084358800400F7C /* MusicWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F915232084358800400F7C /* MusicWindowController.swift */; };
 		66FC622420519996001BE479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66FC622320519996001BE479 /* Main.storyboard */; };
 		66FC622620519A2D001BE479 /* MusicDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622520519A2D001BE479 /* MusicDropViewController.swift */; };
 		66FC622820519ACB001BE479 /* MusicDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC622720519ACB001BE479 /* MusicDropView.swift */; };
@@ -70,6 +71,7 @@
 		66DBC9E52035FA27008B0933 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		66F91508207FDFC200400F7C /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		66F915222084188A00400F7C /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		66F915232084358800400F7C /* MusicWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWindowController.swift; sourceTree = "<group>"; };
 		66FC622320519996001BE479 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66FC622520519A2D001BE479 /* MusicDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropViewController.swift; sourceTree = "<group>"; };
 		66FC622720519ACB001BE479 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				66DBC9C62035F912008B0933 /* AppDelegate.swift */,
 				66DBC9C82035F912008B0933 /* Assets.xcassets */,
 				66FC622320519996001BE479 /* Main.storyboard */,
+				66F915232084358800400F7C /* MusicWindowController.swift */,
 				66FC622520519A2D001BE479 /* MusicDropViewController.swift */,
 				66FC622720519ACB001BE479 /* MusicDropView.swift */,
 				66FC622920519BBD001BE479 /* M4AFileSheet.swift */,
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F915242084358800400F7C /* MusicWindowController.swift in Sources */,
 				661C9F8F2075A72300C9E5B7 /* Collection.swift in Sources */,
 				66FC622A20519BBD001BE479 /* M4AFileSheet.swift in Sources */,
 				661C9F912075A7E700C9E5B7 /* iTunesResult.swift in Sources */,

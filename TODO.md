@@ -1,14 +1,14 @@
-- ~~Failed to decode JSON! on search for "Unwell", also "Treasure"~~
-- ~~Crash when clicking the column headers~~
-- Sorting for search results
-- Give it an open menu
-- Cycle through iTunes library files
-- ~~Drag to dock icon~~
-- Proper icons for right/left buttons (like iTunes)
-- ~~App Icon~~
-- M4A File icon
-- ~~Show "1 of 14" and so on when multiple files are dropped~~
-- ~~Get navigation buttons working~~
 - Handle non-m4a files being dropped
 - Artwork selection
+- M4A File icon
 - Artwork saving (requires updates to `M4ATools`)
+- Proper icons for right/left buttons (like iTunes)
+- Cycle through iTunes library files
+- Sorting for search results
+- ~~Failed to decode JSON! on search for "Unwell", also "Treasure"~~
+- ~~Crash when clicking the column headers~~
+- ~~Give it an open menu~~
+- ~~Drag to dock icon~~
+- ~~App Icon~~
+- ~~Show "1 of 14" and so on when multiple files are dropped~~
+- ~~Get navigation buttons working~~
