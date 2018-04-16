@@ -8,9 +8,8 @@
 
 import Cocoa
 import M4ATools
-import os
 
-class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate {
 
     class EditorState {
         
@@ -29,10 +28,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     var files: [String]!
-    //var m4aFiles = [String : M4AFile]()
-    //var selectedResults = [String : iTunesResult]()
     var fileIndex = 0
-    //var m4aFile: M4AFile!
     
     var state: EditorState!
     var states = [String : EditorState]()
@@ -40,8 +36,6 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     @IBOutlet weak var searchField: NSTextField!
     @IBOutlet weak var searchTableView: NSTableView!
     @IBOutlet weak var songTableView: NSTableView!
-    
-    //var results = [iTunesResult]()
     
     var itunesSearcher = iTunesSearcher()
     
@@ -52,10 +46,6 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     @IBOutlet weak var leftButton: NSButton!
     @IBOutlet weak var rightButton: NSButton!
-    
-    override func viewWillAppear() {
-        okButton.isEnabled = false
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,7 +145,13 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     func canShowOK() -> Bool {
-        return fileIndex == files.count - 1 && state.selectedResult != nil
+        // Check that every state has a selected result
+        for (_, state) in states {
+            if state.selectedResult == nil || state.selectedRow == nil {
+                return false
+            }
+        }
+        return true
     }
     
     func reloadButtons() {
@@ -211,10 +207,27 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let table = notification.object as? NSTableView, table == resultsTableView {
-            if resultsTableView.selectedRow > 0 {
+            if resultsTableView.selectedRow >= 0 {
+                state.selectedRow = resultsTableView.selectedRow
                 let result = state.searchResults[resultsTableView.selectedRow]
+                state.selectedResult = result
                 state.searchResults[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+                reloadButtons()
+            } else {
+                state.selectedRow = nil
+                state.selectedResult = nil
+                reloadButtons()
             }
+        }
+    }
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        guard let field = obj.object as? NSTextField else {
+            return
+        }
+        
+        if field == searchField {
+            state.searchText = field.stringValue
         }
     }
     
