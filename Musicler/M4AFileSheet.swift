@@ -47,6 +47,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     @IBOutlet weak var leftButton: NSButton!
     @IBOutlet weak var rightButton: NSButton!
     
+    @IBOutlet weak var navLabel: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -58,6 +60,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
         
         reloadButtons()
+        
+        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(state.file.fileName!))"
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
@@ -114,9 +118,9 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 searchField.stringValue = state.searchText!
             }
         }
-
-        
         reloadButtons()
+        
+        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(state.file.fileName!))"
     }
     
     func loadFile() {

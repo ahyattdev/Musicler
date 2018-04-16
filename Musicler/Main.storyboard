@@ -1000,6 +1000,17 @@ Gw
                                     <action selector="nextFile:" target="F1y-iJ-rCa" id="N8n-Fr-EIM"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGO-DG-P3z">
+                                <rect key="frame" x="97" y="22" width="159" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="Uwr-R8-pkJ"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ZFj-5x-Has">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="tTA-Pz-edL" firstAttribute="leading" secondItem="V4J-be-oGQ" secondAttribute="leading" id="23J-eT-S2v"/>
@@ -1018,16 +1029,19 @@ Gw
                             <constraint firstAttribute="trailing" secondItem="uga-nb-Wl1" secondAttribute="trailing" constant="20" id="Vn0-rn-RLS"/>
                             <constraint firstItem="tTA-Pz-edL" firstAttribute="baseline" secondItem="Dml-2d-y05" secondAttribute="baseline" id="Zhs-Z3-RoH"/>
                             <constraint firstItem="6Ao-9E-5Fv" firstAttribute="leading" secondItem="OmG-am-VjR" secondAttribute="trailing" constant="8" id="bE3-hZ-C2A"/>
+                            <constraint firstItem="bGO-DG-P3z" firstAttribute="centerY" secondItem="Dml-2d-y05" secondAttribute="centerY" id="bLf-B7-2bB"/>
                             <constraint firstItem="uga-nb-Wl1" firstAttribute="top" secondItem="V4J-be-oGQ" secondAttribute="bottom" constant="20" id="c6T-xn-fce"/>
                             <constraint firstItem="V4J-be-oGQ" firstAttribute="leading" secondItem="fLo-JG-8ML" secondAttribute="leading" constant="20" id="hil-uo-Erv"/>
                             <constraint firstAttribute="trailing" secondItem="V4J-be-oGQ" secondAttribute="trailing" constant="20" id="j2s-Ij-dKt"/>
                             <constraint firstAttribute="trailing" secondItem="6Ao-9E-5Fv" secondAttribute="trailing" constant="20" id="n0X-gw-EtX"/>
+                            <constraint firstItem="fhj-TL-PyH" firstAttribute="leading" secondItem="bGO-DG-P3z" secondAttribute="trailing" constant="8" symbolic="YES" id="oDh-DR-6gE"/>
                             <constraint firstAttribute="bottom" secondItem="uga-nb-Wl1" secondAttribute="bottom" constant="20" id="sGx-Jv-WYz"/>
                             <constraint firstItem="OFn-ie-4l7" firstAttribute="leading" secondItem="fLo-JG-8ML" secondAttribute="leading" constant="20" id="tsi-P1-6sQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="leftButton" destination="tTA-Pz-edL" id="NwS-MP-17y"/>
+                        <outlet property="navLabel" destination="bGO-DG-P3z" id="iKf-UD-veM"/>
                         <outlet property="okButton" destination="uga-nb-Wl1" id="Ttw-VW-xmO"/>
                         <outlet property="resultsTableView" destination="Ona-hw-tij" id="rle-94-Wly"/>
                         <outlet property="rightButton" destination="Dml-2d-y05" id="oCL-98-cNe"/>
