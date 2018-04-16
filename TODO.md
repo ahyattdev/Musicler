@@ -7,8 +7,8 @@
 - Proper icons for right/left buttons (like iTunes)
 - ~~App Icon~~
 - M4A File icon
-- Show "1 of 14" and so on when multiple files are dropped
-- Get navigation buttons working
+- ~~Show "1 of 14" and so on when multiple files are dropped~~
+- ~~Get navigation buttons working~~
 - Handle non-m4a files being dropped
 - Artwork selection
 - Artwork saving (requires updates to `M4ATools`)
