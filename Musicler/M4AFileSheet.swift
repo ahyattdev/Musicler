@@ -12,16 +12,36 @@ import os
 
 class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
+    class EditorState {
+        
+        var path: String
+        var file: M4AFile
+        var searchResults = [iTunesResult]()
+        var searchText: String? = nil
+        var selectedResult: iTunesResult? = nil
+        var selectedRow: Int?
+        
+        init(path: String, file: M4AFile) {
+            self.path = path
+            self.file = file
+        }
+        
+    }
+    
     var files: [String]!
-    var m4aFiles = [String : M4AFile]()
+    //var m4aFiles = [String : M4AFile]()
+    //var selectedResults = [String : iTunesResult]()
     var fileIndex = 0
-    var m4aFile: M4AFile!
+    //var m4aFile: M4AFile!
+    
+    var state: EditorState!
+    var states = [String : EditorState]()
     
     @IBOutlet weak var searchField: NSTextField!
     @IBOutlet weak var searchTableView: NSTableView!
     @IBOutlet weak var songTableView: NSTableView!
     
-    var results = [iTunesResult]()
+    //var results = [iTunesResult]()
     
     var itunesSearcher = iTunesSearcher()
     
@@ -42,27 +62,24 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         // Do view setup here.
         loadFile()
         
-        if let fileName = m4aFile?.fileName {
+        if let fileName = state?.file.fileName {
             searchField.stringValue = fileName.replacingOccurrences(of:
                 ".m4a", with: "")
         }
         
-        leftButton.isEnabled = canShowPrevious()
-        rightButton.isEnabled = canShowNext()
+        reloadButtons()
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
         itunesSearcher.trackName = searchField.stringValue
-        results = itunesSearcher.search()
+        state.searchResults = itunesSearcher.search()
         resultsTableView.reloadData()
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
-        let row = resultsTableView.selectedRow
-        if row > 0 {
-            let selectedResult = results[resultsTableView.selectedRow]
-            selectedResult.writeMetadata(m4aFile: m4aFile)
-            dismissViewController(self)
+        for (_, state) in states {
+            let result = state.selectedResult!
+            result.writeMetadata(m4aFile: state.file)
         }
     }
     
@@ -87,27 +104,42 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     func reset() {
-        results.removeAll()
         resultsTableView.reloadData()
         songTableView.reloadData()
-        if let fileName = m4aFile.fileName {
-            searchField.stringValue = fileName.replacingOccurrences(of:
-                ".m4a", with: "")
+        
+        if let row = state?.selectedRow {
+            resultsTableView.selectRowIndexes([row], byExtendingSelection: false)
         }
         
-        leftButton.isEnabled = canShowPrevious()
-        rightButton.isEnabled = canShowNext()
+        if state != nil {
+            if state.searchText == nil {
+                if let fileName = state?.file.fileName {
+                    searchField.stringValue = fileName.replacingOccurrences(of:
+                        ".m4a", with: "")
+                    state.searchText = searchField.stringValue
+                }
+                
+            } else {
+                searchField.stringValue = state.searchText!
+            }
+        }
+
+        
+        reloadButtons()
     }
     
     func loadFile() {
         let filePath = files[fileIndex]
-        if let file = m4aFiles[filePath] {
-            m4aFile = file
+        if let state = states[filePath] {
+            self.state = state
         } else {
             let url = URL(fileURLWithPath: filePath)
             do {
-                m4aFile = try M4AFile(url: url)
-                m4aFiles[filePath] = m4aFile
+                let m4aFile = try M4AFile(url: url)
+                
+                let state = EditorState(path: filePath, file: m4aFile)
+                states[filePath] = state
+                self.state = state
             } catch {
                 presentError(error)
             }
@@ -119,12 +151,22 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     func canShowNext() -> Bool {
-        return fileIndex < files.count - 1
+        return fileIndex < files.count - 1 && state.selectedResult != nil
+    }
+    
+    func canShowOK() -> Bool {
+        return fileIndex == files.count - 1 && state.selectedResult != nil
+    }
+    
+    func reloadButtons() {
+        leftButton.isEnabled = canShowPrevious()
+        rightButton.isEnabled = canShowNext()
+        okButton.isEnabled = canShowOK()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == resultsTableView {
-            return results.count
+            return state.searchResults.count
         } else {
             return -1
         }
@@ -132,7 +174,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         if tableView == resultsTableView {
-            let result = results[row]
+            let result = state.searchResults[row]
             switch tableColumn!.title {
             case "Track":
                 var name = result.track.trackName
@@ -154,7 +196,9 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         if tableView == resultsTableView {
-            okButton.isEnabled = true
+            state.selectedResult = state.searchResults[row]
+            state.selectedRow = row
+            reloadButtons()
             return true
         } else {
             return true
@@ -168,8 +212,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let table = notification.object as? NSTableView, table == resultsTableView {
             if resultsTableView.selectedRow > 0 {
-                let result = results[resultsTableView.selectedRow]
-                results[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+                let result = state.searchResults[resultsTableView.selectedRow]
+                state.searchResults[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
             }
         }
     }
