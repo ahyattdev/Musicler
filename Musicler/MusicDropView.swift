@@ -36,22 +36,9 @@ class MusicDropView: NSView {
                 sourceDragMask.contains(NSDragOperation.copy) {
                 if let files = pasteboard.propertyList(forType:
                     NSPasteboard.PasteboardType(rawValue:
-                        "NSFilenamesPboardType")) as? NSArray {
-                    for file in files {
-                        if let string = file as? String,
-                            string.lowercased().hasSuffix(".m4a") {
-                            let url = URL(fileURLWithPath: string)
-                            do {
-                                let m4aFile = try M4AFile(url: url)
-                                let app = NSApp.delegate as! AppDelegate
-                                app.dropView.performSegue(withIdentifier:
-                                    MusicDropViewController.Segues.M4AFileSheet,
-                                                          sender: m4aFile)
-                            } catch {
-                                
-                            }
-                        }
-                    }
+                        "NSFilenamesPboardType")) as? [String] {
+                    let app = NSApp.delegate as! AppDelegate
+                    app.dropView.performSegue(withIdentifier: MusicDropViewController.Segues.M4AFileSheet, sender: files)
                 }
                 
             }
@@ -63,19 +50,10 @@ class MusicDropView: NSView {
     }
     
     func openFiles(_ filenames: [String]) {
-        for file in filenames {
-            let url = URL(fileURLWithPath: file)
-            do {
-                let m4aFile = try M4AFile(url: url)
-                let app = NSApp.delegate as! AppDelegate
-                app.dropView.performSegue(withIdentifier:
-                    MusicDropViewController.Segues.M4AFileSheet,
-                                          sender: m4aFile)
-            } catch {
-                printView("Error opening M4A file: \(error)")
-            }
-            
-        }
+        let app = NSApp.delegate as! AppDelegate
+        app.dropView.performSegue(withIdentifier:
+            MusicDropViewController.Segues.M4AFileSheet,
+                                  sender: filenames)
     }
 
 }

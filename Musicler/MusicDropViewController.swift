@@ -34,10 +34,10 @@ class MusicDropViewController: NSViewController {
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let id = segue.identifier, id == Segues.M4AFileSheet {
-            let m4aFile = sender as! M4AFile
+            let files = sender as! [String]
             
             let sheet = segue.destinationController as! M4AFileSheet
-            sheet.m4aFile = m4aFile
+            sheet.files = files
         }
     }
     

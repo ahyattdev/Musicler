@@ -984,7 +984,7 @@ Gw
                                     <font key="font" size="13" name="ZapfDingbatsITC"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="leftButtonPressed:" target="F1y-iJ-rCa" id="gCp-Cu-lCG"/>
+                                    <action selector="previousFile:" target="F1y-iJ-rCa" id="pai-2Q-6pU"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dml-2d-y05" userLabel="Right Button">
@@ -994,7 +994,7 @@ Gw
                                     <font key="font" size="13" name="ZapfDingbatsITC"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="rightButtonPressed:" target="F1y-iJ-rCa" id="QJg-MD-ylR"/>
+                                    <action selector="nextFile:" target="F1y-iJ-rCa" id="N8n-Fr-EIM"/>
                                 </connections>
                             </button>
                         </subviews>

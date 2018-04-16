@@ -8,9 +8,13 @@
 
 import Cocoa
 import M4ATools
+import os
 
 class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
+    var files: [String]!
+    var m4aFiles = [String : M4AFile]()
+    var fileIndex = 0
     var m4aFile: M4AFile!
     
     @IBOutlet weak var searchField: NSTextField!
@@ -36,10 +40,15 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        if let fileName = m4aFile.fileName {
+        loadFile()
+        
+        if let fileName = m4aFile?.fileName {
             searchField.stringValue = fileName.replacingOccurrences(of:
                 ".m4a", with: "")
         }
+        
+        leftButton.isEnabled = canShowPrevious()
+        rightButton.isEnabled = canShowNext()
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
@@ -57,10 +66,60 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
     }
     
-    @IBAction func leftButtonPressed(_ sender: NSButton) {
+    @IBAction func previousFile(_ sender: NSButton) {
+        guard canShowPrevious() else {
+            print("\(#function) called at an incorrect time")
+            return
+        }
+        fileIndex -= 1
+        loadFile()
+        reset()
     }
     
-    @IBAction func rightButtonPressed(_ sender: NSButton) {
+    @IBAction func nextFile(_ sender: NSButton) {
+        guard canShowNext() else {
+            print("\(#function) called at an incorrect time")
+            return
+        }
+        fileIndex += 1
+        loadFile()
+        reset()
+    }
+    
+    func reset() {
+        results.removeAll()
+        resultsTableView.reloadData()
+        songTableView.reloadData()
+        if let fileName = m4aFile.fileName {
+            searchField.stringValue = fileName.replacingOccurrences(of:
+                ".m4a", with: "")
+        }
+        
+        leftButton.isEnabled = canShowPrevious()
+        rightButton.isEnabled = canShowNext()
+    }
+    
+    func loadFile() {
+        let filePath = files[fileIndex]
+        if let file = m4aFiles[filePath] {
+            m4aFile = file
+        } else {
+            let url = URL(fileURLWithPath: filePath)
+            do {
+                m4aFile = try M4AFile(url: url)
+                m4aFiles[filePath] = m4aFile
+            } catch {
+                presentError(error)
+            }
+        }
+    }
+    
+    func canShowPrevious() -> Bool {
+        return fileIndex > 0
+    }
+    
+    func canShowNext() -> Bool {
+        return fileIndex < files.count - 1
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {

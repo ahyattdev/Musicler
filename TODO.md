@@ -5,7 +5,7 @@
 - Cycle through iTunes library files
 - ~~Drag to dock icon~~
 - Proper icons for right/left buttons (like iTunes)
-- App Icon
+- ~~App Icon~~
 - M4A File icon
 - Show "1 of 14" and so on when multiple files are dropped
 - Get navigation buttons working
