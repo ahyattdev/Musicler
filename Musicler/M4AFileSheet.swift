@@ -35,11 +35,10 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     @IBOutlet weak var searchField: NSTextField!
     @IBOutlet weak var searchTableView: NSTableView!
-    @IBOutlet weak var songTableView: NSTableView!
     
     var itunesSearcher = iTunesSearcher()
     
-    @IBOutlet weak var trackTableView: NSTableView!
+    @IBOutlet weak var metadataTableView: NSTableView!
     @IBOutlet weak var resultsTableView: NSTableView!
     
     @IBOutlet weak var okButton: NSButton!
@@ -49,9 +48,13 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     @IBOutlet weak var navLabel: NSTextField!
     
+    var metadataDisplay = [iTunesResult.MetadataEntry]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        
         loadFile()
         
         if let fileName = state?.file.fileName {
@@ -100,7 +103,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func reset() {
         resultsTableView.reloadData()
-        songTableView.reloadData()
+        reloadDisplay()
         
         if let row = state?.selectedRow {
             resultsTableView.selectRowIndexes([row], byExtendingSelection: false)
@@ -168,6 +171,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == resultsTableView {
             return state.searchResults.count
+        } else if tableView == metadataTableView {
+            return metadataDisplay.count
         } else {
             return -1
         }
@@ -190,6 +195,13 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             default:
                 return "Unknown"
             }
+        } else if tableView == metadataTableView {
+            let data = metadataDisplay[row]
+            if tableColumn!.title == "Metadata" {
+                return data.title
+            } else {
+                return data.value
+            }
         } else {
             return nil
         }
@@ -201,6 +213,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             state.selectedResult = state.searchResults[row]
             state.selectedRow = row
             reloadButtons()
+            reloadDisplay()
             return true
         } else {
             return true
@@ -219,10 +232,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 state.searchResults[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
                 state.selectedResult = result
                 reloadButtons()
+                reloadDisplay()
             } else {
                 state.selectedRow = nil
                 state.selectedResult = nil
                 reloadButtons()
+                reloadDisplay()
             }
         }
     }
@@ -235,6 +250,15 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         if field == searchField {
             state.searchText = field.stringValue
         }
+    }
+    
+    func reloadDisplay() {
+        if let result = state.selectedResult {
+            metadataDisplay = result.getDisplayData()
+        } else {
+            metadataDisplay.removeAll()
+        }
+        metadataTableView.reloadData()
     }
     
 }

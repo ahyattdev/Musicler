@@ -19,6 +19,18 @@ struct iTunesResult {
         self.track = track
     }
     
+    class MetadataEntry : NSObject {
+        
+        let title: String
+        let value: String
+        
+        init(title: String, value: String) {
+            self.title = title
+            self.value = value
+        }
+        
+    }
+    
     func writeMetadata(m4aFile: M4AFile) {
         guard /*let artist = artist,*/ let collection = collection else {
             print("\(track.trackName): Didn't fetch the rest of the metadata!")
@@ -52,6 +64,26 @@ struct iTunesResult {
             print("\(track.trackName): Failed to write to file.")
         }
 
+    }
+    
+    func getDisplayData() -> [MetadataEntry] {
+        var metadata = [MetadataEntry]()
+        
+        metadata.append(MetadataEntry(title: "Name", value: track.trackName))
+        metadata.append(MetadataEntry(title: "Artist", value: track.artistName))
+        if let collection = collection {
+            metadata.append(MetadataEntry(title: "Album Artist", value: collection.artistName))
+        }
+        metadata.append(MetadataEntry(title: "Album", value: track.artistName))
+        metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName))
+        metadata.append(MetadataEntry(title: "Release Date", value: track.releaseDate))
+        metadata.append(MetadataEntry(title: "Track Number", value: "\(track.trackNumber) of \(track.trackCount)"))
+        metadata.append(MetadataEntry(title: "Disc Number", value: "\(track.discNumber) of \(track.discCount)"))
+        if let collection = collection {
+            metadata.append(MetadataEntry(title: "Copyright", value: collection.copyright))
+        }
+        
+        return metadata
     }
     
 
