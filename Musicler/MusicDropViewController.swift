@@ -41,4 +41,7 @@ class MusicDropViewController: NSViewController {
         }
     }
     
+    @IBAction func open(_ sender: Any) {
+        (NSApp.delegate as! AppDelegate).openMenu(NSMenuItem())
+    }
 }

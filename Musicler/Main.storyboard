@@ -644,8 +644,8 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
                         <connections>
-                            <binding destination="B8D-0N-5wS" name="representedFilename" keyPath="self.window" id="b88-Sw-nbl"/>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
@@ -663,23 +663,33 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MusicDropViewController" customModule="Musicler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="MusicDropView" customModule="Musicler" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="604" height="351"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wQi-Hq-9ww">
-                                <rect key="frame" x="170" y="124" width="140" height="22"/>
+                                <rect key="frame" x="232" y="165" width="140" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drop Music Here" id="2ks-e7-AsO">
                                     <font key="font" size="18" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-86-uPL">
+                                <rect key="frame" x="274" y="138" width="56" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Open..." bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MDG-4B-bnp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="open:" target="XfG-lQ-9wD" id="QPT-Pp-w55"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="wQi-Hq-9ww" secondAttribute="bottom" constant="124" id="39v-tn-Oxa"/>
-                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="124" id="9QK-GX-hRO"/>
-                            <constraint firstAttribute="trailing" secondItem="wQi-Hq-9ww" secondAttribute="trailing" constant="172" id="9nW-7U-KuY"/>
-                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="172" id="tce-x7-kEg"/>
+                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="3XE-Xo-lGr"/>
+                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="9G4-Pu-iHo"/>
+                            <constraint firstItem="mE9-86-uPL" firstAttribute="top" secondItem="wQi-Hq-9ww" secondAttribute="bottom" constant="8" symbolic="YES" id="FjQ-pe-iWY"/>
+                            <constraint firstItem="mE9-86-uPL" firstAttribute="centerX" secondItem="wQi-Hq-9ww" secondAttribute="centerX" id="MOZ-Wc-fqO"/>
                         </constraints>
                     </view>
                     <connections>
@@ -689,7 +699,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="137" y="695.5"/>
         </scene>
         <!--M4A File Sheet-->
         <scene sceneID="fet-pb-VnC">
@@ -812,7 +822,7 @@ Gw
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="clp-hb-sCf">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="clp-hb-sCf">
                                     <rect key="frame" x="1" y="190" width="499" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -859,7 +869,7 @@ Gw
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xts-tr-V1f">
                                 <rect key="frame" x="192" y="47" width="329" height="164"/>
                                 <clipView key="contentView" id="0PP-eg-bkI">
-                                    <rect key="frame" x="1" y="23" width="327" height="140"/>
+                                    <rect key="frame" x="1" y="0.0" width="327" height="163"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="YK8-xo-7Se" id="CrV-sE-Wwl">
