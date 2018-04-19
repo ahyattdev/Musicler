@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andrew Hyatt. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 class iTunesSearcher {
     
@@ -60,10 +60,22 @@ class iTunesSearcher {
                 
                 if json.results.count == 1 {
                     result.collection = json.results[0]
+                } else {
+                    throw NSError(domain: "io.github.ahyattdev.Musicler.ErrorDomain", code: 5, userInfo: [NSLocalizedDescriptionKey : "Too many results for collection"])
                 }
+                
+                // Get artwork
+                guard let artworkURL = URL(string: result.collection!.artworkUrl100.absoluteString.replacingOccurrences(of: "100x100bb.jpg", with: "600x600bb.jpg")) else {
+                    throw NSError(domain: "io.github.ahyattdev.Musicler.ErrorDomain", code: 5, userInfo: [NSLocalizedDescriptionKey : "Couldn't get artwork URL"])
+                }
+                
+                result.downloadedArtwork = NSImage.init(contentsOf: artworkURL)
+                
             } catch {
                 print("Failed to decode JSON! \(error)")
             }
+            
+            
         }
         return result
     }

@@ -48,6 +48,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     @IBOutlet weak var navLabel: NSTextField!
     
+    @IBOutlet weak var artwork: NSImageView!
+    
     var metadataDisplay = [iTunesResult.MetadataEntry]()
     
     override func viewDidLoad() {
@@ -265,6 +267,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     func reloadDisplay() {
         if let result = state.selectedResult {
             metadataDisplay = result.getDisplayData()
+            artwork.image = result.downloadedArtwork
         } else {
             metadataDisplay.removeAll()
         }

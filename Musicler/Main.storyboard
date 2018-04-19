@@ -965,6 +965,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artwork" destination="VtX-Ge-Ur8" id="EXg-CO-hXm"/>
                         <outlet property="leftButton" destination="tTA-Pz-edL" id="NwS-MP-17y"/>
                         <outlet property="metadataTableView" destination="CrV-sE-Wwl" id="4UI-5S-uLo"/>
                         <outlet property="navLabel" destination="bGO-DG-P3z" id="iKf-UD-veM"/>

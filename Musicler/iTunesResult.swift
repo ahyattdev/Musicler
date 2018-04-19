@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andrew Hyatt. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 import MP42Foundation
 
 struct iTunesResult {
@@ -14,6 +14,8 @@ struct iTunesResult {
     var track: Track
     var artist: Artist?
     var collection: Collection?
+    
+    var downloadedArtwork: NSImage?
     
     init(track: Track) {
         self.track = track
@@ -115,7 +117,7 @@ struct iTunesResult {
         if let collection = collection {
             metadata.append(MetadataEntry(title: "Album Artist", value: collection.artistName))
         }
-        metadata.append(MetadataEntry(title: "Album", value: track.artistName))
+        metadata.append(MetadataEntry(title: "Album", value: track.collectionName))
         metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName))
         metadata.append(MetadataEntry(title: "Release Date", value: track.releaseDate))
         metadata.append(MetadataEntry(title: "Track Number", value: "\(track.trackNumber) of \(track.trackCount)"))
