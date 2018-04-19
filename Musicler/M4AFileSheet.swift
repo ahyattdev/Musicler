@@ -140,6 +140,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 self.state = state
             } catch {
                 presentError(error)
+                dismissViewController(self)
             }
         }
     }
