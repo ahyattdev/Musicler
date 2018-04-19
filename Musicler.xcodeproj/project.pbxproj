@@ -12,8 +12,8 @@
 		661C9F8F2075A72300C9E5B7 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F8E2075A72300C9E5B7 /* Collection.swift */; };
 		661C9F912075A7E700C9E5B7 /* iTunesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F902075A7E700C9E5B7 /* iTunesResult.swift */; };
 		661C9F932075A8E200C9E5B7 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F922075A8E200C9E5B7 /* Wrapper.swift */; };
-		66C98EF82051FEF9008FDE02 /* M4ATools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EEE2051FED1008FDE02 /* M4ATools.framework */; };
-		66C98EF92051FEF9008FDE02 /* M4ATools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66C98EEE2051FED1008FDE02 /* M4ATools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6661A2E9208908DD00B1A669 /* MP42Foundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6661A2E6208908CE00B1A669 /* MP42Foundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6661A2EA208908F700B1A669 /* MP42Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6661A2E6208908CE00B1A669 /* MP42Foundation.framework */; };
 		66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
@@ -42,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				66C98EF92051FEF9008FDE02 /* M4ATools.framework in Embed Frameworks */,
+				6661A2E9208908DD00B1A669 /* MP42Foundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,8 +55,8 @@
 		661C9F8E2075A72300C9E5B7 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		661C9F902075A7E700C9E5B7 /* iTunesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesResult.swift; sourceTree = "<group>"; };
 		661C9F922075A8E200C9E5B7 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
+		6661A2E6208908CE00B1A669 /* MP42Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MP42Foundation.framework; path = Carthage/Build/Mac/MP42Foundation.framework; sourceTree = "<group>"; };
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		66C98EEE2051FED1008FDE02 /* M4ATools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M4ATools.framework; path = Carthage/Build/Mac/M4ATools.framework; sourceTree = "<group>"; };
 		66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearcher.swift; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DBC9C62035F912008B0933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C98EF82051FEF9008FDE02 /* M4ATools.framework in Frameworks */,
+				6661A2EA208908F700B1A669 /* MP42Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +156,7 @@
 		66FC622F2051FE77001BE479 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66C98EEE2051FED1008FDE02 /* M4ATools.framework */,
+				6661A2E6208908CE00B1A669 /* MP42Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

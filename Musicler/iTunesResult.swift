@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import M4ATools
+import MP42Foundation
 
 struct iTunesResult {
     
@@ -31,39 +31,80 @@ struct iTunesResult {
         
     }
     
-    func writeMetadata(m4aFile: M4AFile) {
+    func writeMetadata(m4aFile: MP42File) {
         guard /*let artist = artist,*/ let collection = collection else {
             print("\(track.trackName): Didn't fetch the rest of the metadata!")
             return
         }
         
-        m4aFile.setStringMetadata(.title, value: track.trackName)
-        m4aFile.setStringMetadata(.artist, value: track.artistName)
-        m4aFile.setStringMetadata(.genreCustom, value: track.primaryGenreName)
-        m4aFile.setStringMetadata(.album, value: track.collectionName)
-        m4aFile.setTwoIntMetadata(.disc, value: (UInt16(track.discNumber), UInt16(track.discCount)))
-        m4aFile.setTwoIntMetadata(.track, value: (UInt16(track.trackNumber), UInt16(track.trackCount)))
-        m4aFile.setStringMetadata(.year, value: track.releaseDate)
-        m4aFile.setStringMetadata(.copyright, value: collection.copyright)
-        m4aFile.setStringMetadata(.albumArtist, value: collection.artistName)
+        var metadata = [
+            
+            (MP42MetadataKeyName,
+                         track.trackName as NSCopying & NSObjectProtocol,
+                         MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyArtist,
+             track.artistName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyUserGenre,
+             track.primaryGenreName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyAlbum,
+             track.collectionName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyDiscNumber,
+             [track.discNumber, track.discCount] as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.integerArray),
+            
+            (MP42MetadataKeyTrackNumber,
+             [track.trackNumber, track.trackCount] as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.integerArray),
+            
+            (MP42MetadataKeyReleaseDate,
+             track.releaseDate as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyCopyright,
+             collection.copyright as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyAlbumArtist,
+             collection.artistName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeySortAlbum,
+             track.collectionName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeySortArtist,
+             track.artistName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeySortName,
+             track.trackName as NSCopying & NSObjectProtocol,
+             MP42MetadataItemDataType.string),
         
-        // Set sorting for album, artist, and name
-        m4aFile.setStringMetadata(.sortingAlbum, value: track.collectionName)
-        m4aFile.setStringMetadata(.sortingArtist, value: track.artistName)
-        m4aFile.setStringMetadata(.sortingTitle, value: track.trackName)
+        ]
+        
         if track.trackExplicitness == "explicit" {
-            m4aFile.setUInt8Metadata(.rating, value: 0b00000001)
+            metadata.append((MP42MetadataKeyContentRating,
+                             1 as NSCopying & NSObjectProtocol,
+                             .integer
+                             ))
         }
-        guard let url = m4aFile.url else {
-            print("\(track.trackName): Can't write a file without a URL.")
-            return
+        
+        for metadata in metadata {
+            m4aFile.metadata.addItem(MP42MetadataItem(identifier: metadata.0, value: metadata.1, dataType: metadata.2, extendedLanguageTag: nil))
         }
+        
         do {
-            try m4aFile.write(url: url)
+            try m4aFile.update(options: nil)
         } catch {
-            print("\(track.trackName): Failed to write to file.")
+            print("\(track.trackName): Failed to write to file. \(error)")
         }
-
     }
     
     func getDisplayData() -> [MetadataEntry] {

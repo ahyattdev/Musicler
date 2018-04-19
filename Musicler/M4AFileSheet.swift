@@ -7,20 +7,20 @@
 //
 
 import Cocoa
-import M4ATools
+import MP42Foundation
 
 class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate {
 
     class EditorState {
         
         var path: String
-        var file: M4AFile
+        var file: MP42File
         var searchResults = [iTunesResult]()
         var searchText: String? = nil
         var selectedResult: iTunesResult? = nil
         var selectedRow: Int?
         
-        init(path: String, file: M4AFile) {
+        init(path: String, file: MP42File) {
             self.path = path
             self.file = file
         }
@@ -57,14 +57,18 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         loadFile()
         
-        if let fileName = state?.file.fileName {
+        if let fileName = state?.file.url?.lastPathComponent {
             searchField.stringValue = fileName.replacingOccurrences(of:
                 ".m4a", with: "")
         }
         
         reloadButtons()
         
-        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(state.file.fileName!))"
+        if let filename = state.file.url?.lastPathComponent {
+            navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(filename))"
+        } else {
+            navLabel.stringValue = "Error loading filename"
+        }
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
@@ -111,7 +115,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         if state != nil {
             if state.searchText == nil {
-                if let fileName = state?.file.fileName {
+                if let fileName = state?.file.url?.lastPathComponent {
                     searchField.stringValue = fileName.replacingOccurrences(of:
                         ".m4a", with: "")
                     state.searchText = searchField.stringValue
@@ -123,7 +127,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
         reloadButtons()
         
-        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(state.file.fileName!))"
+        if let filename = state.file.url?.lastPathComponent {
+            navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(filename))"
+        } else {
+            navLabel.stringValue = "Error loading filename"
+        }
+        
     }
     
     func loadFile() {
@@ -133,7 +142,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         } else {
             let url = URL(fileURLWithPath: filePath)
             do {
-                let m4aFile = try M4AFile(url: url)
+                let m4aFile = try MP42File(url: url)
                 
                 let state = EditorState(path: filePath, file: m4aFile)
                 states[filePath] = state

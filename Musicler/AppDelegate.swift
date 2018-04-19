@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import M4ATools
+import MP42Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
