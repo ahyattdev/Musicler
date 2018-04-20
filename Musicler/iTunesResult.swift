@@ -34,8 +34,14 @@ struct iTunesResult {
     }
     
     func writeMetadata(m4aFile: MP42File) {
-        guard /*let artist = artist,*/ let collection = collection else {
+        guard /*let artist = artist,*/ let collection = collection,
+            let cover = downloadedArtwork else {
             print("\(track.trackName): Didn't fetch the rest of the metadata!")
+            return
+        }
+        
+        guard let art = MP42Image(image: cover) else {
+            print("\(track.trackName): Couldn't convert artwork!")
             return
         }
         
@@ -88,6 +94,11 @@ struct iTunesResult {
             (MP42MetadataKeySortName,
              track.trackName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
+            
+            (MP42MetadataKeyCoverArt,
+             art,
+             MP42MetadataItemDataType.image
+             ),
         
         ]
         
@@ -96,6 +107,13 @@ struct iTunesResult {
                              1 as NSCopying & NSObjectProtocol,
                              .integer
                              ))
+        }
+        
+        // Remove previous artwork
+        for item in m4aFile.metadata.items {
+            if item.imageValue != nil {
+                m4aFile.metadata.removeItem(item)
+            }
         }
         
         for metadata in metadata {
