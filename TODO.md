@@ -1,10 +1,11 @@
-- Handle non-m4a files being dropped
-- Artwork selection
 - M4A File icon
-- Artwork saving (requires updates to `M4ATools`)
 - Proper icons for right/left buttons (like iTunes)
-- Cycle through iTunes library files
 - Sorting for search results
+- Ability to select different iTunes stores
+- ~~Handle non-m4a files being dropped~~
+- ~~Artwork selection~~
+- ~~Artwork saving (requires updates to `M4ATools`)~~
+- ~~Cycle through iTunes library files~~
 - ~~Failed to decode JSON! on search for "Unwell", also "Treasure"~~
 - ~~Crash when clicking the column headers~~
 - ~~Give it an open menu~~

@@ -59,18 +59,11 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         loadFile()
         
-        if let fileName = state?.file.url?.lastPathComponent {
-            searchField.stringValue = fileName.replacingOccurrences(of:
-                ".m4a", with: "")
-        }
+        searchField.stringValue = fileSearchName()
         
         reloadButtons()
         
-        if let filename = state.file.url?.lastPathComponent {
-            navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(filename))"
-        } else {
-            navLabel.stringValue = "Error loading filename"
-        }
+        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(fileName()))"
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
@@ -117,11 +110,8 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         if state != nil {
             if state.searchText == nil {
-                if let fileName = state?.file.url?.lastPathComponent {
-                    searchField.stringValue = fileName.replacingOccurrences(of:
-                        ".m4a", with: "")
-                    state.searchText = searchField.stringValue
-                }
+                searchField.stringValue = fileSearchName()
+                state.searchText = searchField.stringValue
                 
             } else {
                 searchField.stringValue = state.searchText!
@@ -129,11 +119,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
         reloadButtons()
         
-        if let filename = state.file.url?.lastPathComponent {
-            navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(filename))"
-        } else {
-            navLabel.stringValue = "Error loading filename"
-        }
+        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(fileName()))"
         
     }
     
@@ -149,6 +135,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 let state = EditorState(path: filePath, file: m4aFile)
                 states[filePath] = state
                 self.state = state
+                
             } catch {
                 presentError(error)
                 dismissViewController(self)
@@ -171,7 +158,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 return false
             }
         }
-        return true
+        return files.count == states.count
     }
     
     func reloadButtons() {
@@ -270,8 +257,48 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             artwork.image = result.downloadedArtwork
         } else {
             metadataDisplay.removeAll()
+            artwork.image = nil
         }
         metadataTableView.reloadData()
+    }
+    
+    func fileName() -> String {
+        if let fileName = state?.file.url?.lastPathComponent {
+            return fileName
+        } else {
+            return "Couldn't get filename"
+        }
+    }
+    
+    func fileSearchName() -> String {
+        if let file = state?.file {
+            var name = fileName()
+            name = name.replacingOccurrences(of:
+                ".m4a", with: "")
+            if name.hasSuffix(".m4a") {
+                name.removeSubrange(name.index(name.endIndex, offsetBy: ".m4a".count) ..< name.endIndex)
+            }
+            // 1-11 Another Rainy Night (Without You)
+            let trackNumbers = file.metadata.metadataItemsFiltered(byIdentifier: MP42MetadataKeyTrackNumber)
+            if trackNumbers.count == 1 {
+                let trackNumber = trackNumbers[0]
+                if let track = trackNumber.arrayValue as? [Int], track.count == 2 {
+                    let num = track[0]
+                    var numString = num.description
+                    if numString.utf8.count == 1 {
+                        numString = "0".appending(numString)
+                    }
+                    numString = numString.appending(" ")
+                    
+                    if name.starts(with: numString) {
+                        name.removeFirst(numString.count)
+                    }
+                }
+            }
+            return name
+        } else {
+            return ""
+        }
     }
     
 }
