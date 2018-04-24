@@ -280,8 +280,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 name.removeSubrange(name.index(name.endIndex, offsetBy: ".m4a".count) ..< name.endIndex)
             }
             // 1-11 Another Rainy Night (Without You)
+            let titles = file.metadata.metadataItemsFiltered(byIdentifier: MP42MetadataKeyName)
             let trackNumbers = file.metadata.metadataItemsFiltered(byIdentifier: MP42MetadataKeyTrackNumber)
-            if trackNumbers.count == 1 {
+            
+            if titles.count == 1, let title = titles[0].stringValue {
+                name = title
+            } else if trackNumbers.count == 1 {
                 let trackNumber = trackNumbers[0]
                 if let track = trackNumber.arrayValue as? [Int], track.count == 2 {
                     let num = track[0]

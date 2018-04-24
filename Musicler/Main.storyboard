@@ -684,12 +684,22 @@
                                     <action selector="open:" target="XfG-lQ-9wD" id="QPT-Pp-w55"/>
                                 </connections>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-Lr-WeQ">
+                                <rect key="frame" x="238" y="195" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="lYi-Sq-6EW"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="R6n-Uz-P1O"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wQi-Hq-9ww" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="3XE-Xo-lGr"/>
                             <constraint firstItem="wQi-Hq-9ww" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="9G4-Pu-iHo"/>
                             <constraint firstItem="mE9-86-uPL" firstAttribute="top" secondItem="wQi-Hq-9ww" secondAttribute="bottom" constant="8" symbolic="YES" id="FjQ-pe-iWY"/>
+                            <constraint firstItem="wQi-Hq-9ww" firstAttribute="top" secondItem="sC9-Lr-WeQ" secondAttribute="bottom" constant="8" symbolic="YES" id="IVg-Z3-qEV"/>
+                            <constraint firstItem="sC9-Lr-WeQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="28" id="JZ6-az-Vnp"/>
                             <constraint firstItem="mE9-86-uPL" firstAttribute="centerX" secondItem="wQi-Hq-9ww" secondAttribute="centerX" id="MOZ-Wc-fqO"/>
+                            <constraint firstItem="sC9-Lr-WeQ" firstAttribute="centerX" secondItem="wQi-Hq-9ww" secondAttribute="centerX" id="kGP-SN-t3G"/>
                         </constraints>
                     </view>
                     <connections>
@@ -981,4 +991,7 @@ Gw
             <point key="canvasLocation" x="120.5" y="1175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+    </resources>
 </document>

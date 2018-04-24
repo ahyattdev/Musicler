@@ -56,6 +56,7 @@
 		661C9F902075A7E700C9E5B7 /* iTunesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesResult.swift; sourceTree = "<group>"; };
 		661C9F922075A8E200C9E5B7 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		6661A2E6208908CE00B1A669 /* MP42Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MP42Foundation.framework; path = Carthage/Build/Mac/MP42Foundation.framework; sourceTree = "<group>"; };
+		669871AB208FB190004DA275 /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Screenshots; sourceTree = "<group>"; };
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearcher.swift; sourceTree = "<group>"; };
 		66DBC9C32035F912008B0933 /* Musicler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musicler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +107,7 @@
 				66F91508207FDFC200400F7C /* TODO.md */,
 				669FF014204F508700E899E3 /* Cartfile */,
 				66F915222084188A00400F7C /* Icons */,
+				669871AB208FB190004DA275 /* Screenshots */,
 				66DBC9C52035F912008B0933 /* Musicler */,
 				66DBC9D62035F912008B0933 /* MusiclerTests */,
 				66DBC9C42035F912008B0933 /* Products */,
