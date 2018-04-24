@@ -1,6 +1,6 @@
 # Musicler
 
-![The icon of Musicler](icon)
+![The icon of Musicler][icon]
 
 *A macOS utlility that tags M4A files with iTunes metadata*
 
