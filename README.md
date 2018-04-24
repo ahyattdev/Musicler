@@ -1,6 +1,9 @@
-<p style="text-align: center;">Musicler</p>
-<div style="text-align: center;">![The icon of Musicler][icon]</div>
-<p style="text-align: center;">A macOS utlility that tags M4A files with iTunes metadata</p>
+# Musicler
+
+![The icon of Musicler](icon)
+
+*A macOS utlility that tags M4A files with iTunes metadata*
+
 ---
 
 ## Screenshots
