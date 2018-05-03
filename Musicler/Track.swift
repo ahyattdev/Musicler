@@ -36,7 +36,7 @@ struct Track : Codable {
     let discNumber: Int
     let trackCount: Int
     let trackNumber: Int
-    let trackTimeMillis: Int
+    let trackTimeMillis: Int?
     let country: String
     let currency: String
     let primaryGenreName: String
