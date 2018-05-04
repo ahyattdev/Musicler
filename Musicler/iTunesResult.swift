@@ -82,7 +82,7 @@ struct iTunesResult {
             (MP42MetadataKeyAlbumArtist,
              collection.artistName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
-            
+            /*
             (MP42MetadataKeySortAlbum,
              track.collectionName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
@@ -94,7 +94,7 @@ struct iTunesResult {
             (MP42MetadataKeySortName,
              track.trackName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
-            
+            */
             (MP42MetadataKeyCoverArt,
              art,
              MP42MetadataItemDataType.image
