@@ -42,6 +42,12 @@ class MusicDropViewController: NSViewController {
     }
     
     @IBAction func open(_ sender: Any) {
-        (NSApp.delegate as! AppDelegate).openMenu(NSMenuItem())
+        let appDelegate = NSApp.delegate as! AppDelegate
+        
+        if NSEvent.modifierFlags.contains(.option) {
+            appDelegate.removeAllSortingData()
+        } else {
+            appDelegate.openMenu(NSMenuItem())
+        }
     }
 }

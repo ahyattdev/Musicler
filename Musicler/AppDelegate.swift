@@ -51,4 +51,51 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             })
         }
     }
+    
+    func removeAllSortingData() {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = true
+        panel.allowedFileTypes = ["m4a"]
+        
+        if let window = window {
+            panel.beginSheetModal(for: window, completionHandler: { response in
+                if response == NSApplication.ModalResponse.OK {
+                    var paths = [String]()
+                    for url in panel.urls {
+                        paths.append(url.path)
+                    }
+                    
+                    for path in paths {
+                        let url = URL(fileURLWithPath: path)
+                        do {
+                            let file = try MP42File(url: url)
+                            
+                            var itemsToRemove = [MP42MetadataItem]()
+                            
+                            for item in file.metadata.items {
+                                if item.identifier == MP42MetadataKeySortAlbum ||
+                                    item.identifier == MP42MetadataKeySortArtist ||
+                                    item.identifier == MP42MetadataKeySortName {
+                                    itemsToRemove.append(item)
+                                }
+                            }
+                            
+                            file.metadata.removeItems(itemsToRemove)
+                            for item in itemsToRemove {
+                                file.metadata.removeItem(item)
+                            }
+                            file.recalculateBitrate = false
+                            try file.update(options: nil)
+                        } catch {
+                            print(error)
+                        }
+                    }
+                    
+                    
+                }
+            })
+        }
+    }
 }
