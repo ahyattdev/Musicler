@@ -39,7 +39,7 @@ struct Track : Codable {
     let trackTimeMillis: Int?
     let country: String
     let currency: String
-    let primaryGenreName: String
+    let primaryGenreName: String?
     let isStreamable: Bool
     
 }

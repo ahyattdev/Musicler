@@ -55,10 +55,6 @@ struct iTunesResult {
              track.artistName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
             
-            (MP42MetadataKeyUserGenre,
-             track.primaryGenreName as NSCopying & NSObjectProtocol,
-             MP42MetadataItemDataType.string),
-            
             (MP42MetadataKeyAlbum,
              track.collectionName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
@@ -102,6 +98,12 @@ struct iTunesResult {
         
         ]
         
+        if let genre = track.primaryGenreName {
+            metadata.append((MP42MetadataKeyUserGenre,
+                             genre as NSCopying & NSObjectProtocol,
+                             MP42MetadataItemDataType.string))
+        }
+        
         if track.trackExplicitness == "explicit" {
             metadata.append((MP42MetadataKeyContentRating,
                              1 as NSCopying & NSObjectProtocol,
@@ -136,7 +138,7 @@ struct iTunesResult {
             metadata.append(MetadataEntry(title: "Album Artist", value: collection.artistName))
         }
         metadata.append(MetadataEntry(title: "Album", value: track.collectionName))
-        metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName))
+        metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName ?? "No Genre"))
         metadata.append(MetadataEntry(title: "Release Date", value: track.releaseDate))
         metadata.append(MetadataEntry(title: "Track Number", value: "\(track.trackNumber) of \(track.trackCount)"))
         metadata.append(MetadataEntry(title: "Disc Number", value: "\(track.discNumber) of \(track.discCount)"))

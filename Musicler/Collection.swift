@@ -30,6 +30,6 @@ struct Collection : Codable {
     let country: String
     let currency: String
     let releaseDate: String
-    let primaryGenreName: String
+    let primaryGenreName: String?
     
 }
