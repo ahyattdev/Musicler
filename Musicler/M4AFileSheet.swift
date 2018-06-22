@@ -64,14 +64,14 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         loadFile()
         
-        searchField.stringValue = fileSearchName()
-        
-        reloadButtons()
-        
-        navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(fileName()))"
+        reset()
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
+        search()
+    }
+    
+    func search() {
         itunesSearcher.trackName = searchField.stringValue
         state.searchResults = itunesSearcher.search()
         resultsTableView.reloadData()
@@ -126,6 +126,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(fileName()))"
         
+        search()
     }
     
     func loadFile() {
