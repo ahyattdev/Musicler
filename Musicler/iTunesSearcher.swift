@@ -28,29 +28,38 @@ class iTunesSearcher {
         self.viewController = viewController
     }
     
-    func search() -> [iTunesResult] {
-        var results = [iTunesResult]()
-        guard let url = URL(string:
-                "https://itunes.apple.com/search?term=\(escapedName)&country=us&media=music&entity=song")
-            else {
-            return results
-        }
-        
-        
-        do {
-            let data = try Data.init(contentsOf: url)
+    func search(completion: @escaping (_ results: [iTunesResult]) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            var results = [iTunesResult]()
+            guard let url = URL(string:
+                "https://itunes.apple.com/search?term=\(self.escapedName)&country=us&media=music&entity=song")
+                else {
+                    DispatchQueue.main.async {
+                        completion(results)
+                    }
+                    return
+                }
             
-            let json = try JSONDecoder().decode(Wrapper<Track>.self, from: data)
-            
-            for track in json.results {
-                let result = iTunesResult(track: track)
-                results.append(result)
+            do {
+                let data = try Data.init(contentsOf: url)
+                
+                let json = try JSONDecoder().decode(Wrapper<Track>.self, from: data)
+                
+                for track in json.results {
+                    let result = iTunesResult(track: track)
+                    results.append(result)
+                }
+            } catch {
+                print("Failed to decode JSON! \(error)")
+                DispatchQueue.main.async {
+                    self.viewController.presentError(error)
+                }
+                
             }
-        } catch {
-            print("Failed to decode JSON! \(error)")
-            viewController.presentError(error)
+            DispatchQueue.main.async {
+                completion(results)
+            }
         }
-        return results
     }
     
     func loadMoreMetadata(result: iTunesResult, completion: @escaping () -> ()) {

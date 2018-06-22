@@ -68,13 +68,18 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     }
     
     @IBAction func searchPressed(_ sender: NSButton) {
-        search()
+        search(completion: nil)
     }
     
-    func search() {
+    func search(completion: (() -> ())?) {
         itunesSearcher.trackName = searchField.stringValue
-        state.searchResults = itunesSearcher.search()
-        resultsTableView.reloadData()
+        itunesSearcher.search(completion: { (results) -> Void in
+            self.state.searchResults = results
+            self.resultsTableView.reloadData()
+            if let completion = completion {
+                completion()
+            }
+        })
     }
     
     @IBAction func okPressed(_ sender: NSButton) {
@@ -109,9 +114,6 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         resultsTableView.reloadData()
         reloadDisplay()
         
-        if let row = state?.selectedRow {
-            resultsTableView.selectRowIndexes([row], byExtendingSelection: false)
-        }
         
         if state != nil {
             if state.searchText == nil {
@@ -126,7 +128,19 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         
         navLabel.stringValue = "File \(fileIndex + 1) of \(files.count) (\(fileName()))"
         
-        search()
+        search(completion: {
+            if self.state.searchResults.count > 0 {
+                self.resultsTableView.selectRowIndexes(IndexSet(integersIn: 0 ..< 1), byExtendingSelection: false)
+                
+                if let row = self.state?.selectedRow {
+                    self.resultsTableView.selectRowIndexes([row], byExtendingSelection: false)
+                    
+                    if let window = self.resultsTableView.window {
+                        window.makeFirstResponder(self.resultsTableView)
+                    }
+                }
+            }
+        })
     }
     
     func loadFile() {
