@@ -36,7 +36,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     @IBOutlet weak var searchField: NSTextField!
     @IBOutlet weak var searchTableView: NSTableView!
     
-    var itunesSearcher = iTunesSearcher()
+    var itunesSearcher: iTunesSearcher!
     
     @IBOutlet weak var metadataTableView: NSTableView!
     @IBOutlet weak var resultsTableView: NSTableView!
@@ -51,6 +51,11 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     @IBOutlet weak var artwork: NSImageView!
     
     var metadataDisplay = [iTunesResult.MetadataEntry]()
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        itunesSearcher = iTunesSearcher(viewController: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -209,11 +214,12 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         if tableView == resultsTableView {
-            state.searchResults[row] = itunesSearcher.loadMoreMetadata(result: state.searchResults[row])
+            itunesSearcher.loadMoreMetadata(result: state.searchResults[row], completion: {
+                self.reloadDisplay()
+            })
             state.selectedResult = state.searchResults[row]
             state.selectedRow = row
             reloadButtons()
-            reloadDisplay()
             return true
         } else {
             return true
@@ -229,10 +235,11 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             if resultsTableView.selectedRow >= 0 {
                 state.selectedRow = resultsTableView.selectedRow
                 let result = state.searchResults[resultsTableView.selectedRow]
-                state.searchResults[resultsTableView.selectedRow] = itunesSearcher.loadMoreMetadata(result: result)
+                itunesSearcher.loadMoreMetadata(result: result, completion: {
+                    self.reloadDisplay()
+                })
                 state.selectedResult = result
                 reloadButtons()
-                reloadDisplay()
             } else {
                 state.selectedRow = nil
                 state.selectedResult = nil

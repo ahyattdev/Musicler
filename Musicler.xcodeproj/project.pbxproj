@@ -76,7 +76,7 @@
 		66FC622320519996001BE479 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66FC622520519A2D001BE479 /* MusicDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropViewController.swift; sourceTree = "<group>"; };
 		66FC622720519ACB001BE479 /* MusicDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDropView.swift; sourceTree = "<group>"; };
-		66FC622920519BBD001BE479 /* M4AFileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M4AFileSheet.swift; sourceTree = "<group>"; };
+		66FC622920519BBD001BE479 /* M4AFileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M4AFileSheet.swift; sourceTree = "<group>"; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

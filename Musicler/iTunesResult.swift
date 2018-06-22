@@ -9,7 +9,7 @@
 import Cocoa
 import MP42Foundation
 
-struct iTunesResult {
+class iTunesResult {
     
     var track: Track
     var artist: Artist?
