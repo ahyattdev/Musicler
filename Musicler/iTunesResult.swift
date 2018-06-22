@@ -68,7 +68,7 @@ class iTunesResult {
              MP42MetadataItemDataType.integerArray),
             
             (MP42MetadataKeyReleaseDate,
-             track.releaseDate as NSCopying & NSObjectProtocol,
+             collection.releaseDate as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
             
             (MP42MetadataKeyCopyright,
@@ -78,19 +78,6 @@ class iTunesResult {
             (MP42MetadataKeyAlbumArtist,
              collection.artistName as NSCopying & NSObjectProtocol,
              MP42MetadataItemDataType.string),
-            /*
-            (MP42MetadataKeySortAlbum,
-             track.collectionName as NSCopying & NSObjectProtocol,
-             MP42MetadataItemDataType.string),
-            
-            (MP42MetadataKeySortArtist,
-             track.artistName as NSCopying & NSObjectProtocol,
-             MP42MetadataItemDataType.string),
-            
-            (MP42MetadataKeySortName,
-             track.trackName as NSCopying & NSObjectProtocol,
-             MP42MetadataItemDataType.string),
-            */
             (MP42MetadataKeyCoverArt,
              art,
              MP42MetadataItemDataType.image
@@ -109,6 +96,13 @@ class iTunesResult {
                              1 as NSCopying & NSObjectProtocol,
                              .integer
                              ))
+        }
+        
+        // Set compilation
+        if collection.artistName == "Various Artists" {
+            metadata.append((MP42MetadataKeyDiscCompilation,
+                             1 as NSCopying & NSObjectProtocol,
+                             .integer))
         }
         
         // Remove previous artwork

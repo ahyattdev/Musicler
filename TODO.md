@@ -1,3 +1,6 @@
+# Musicler TODO
+
+## Enhancements
 - M4A File icon
 - Proper icons for right/left buttons (like iTunes)
 - Sorting for search results
@@ -13,3 +16,9 @@
 - ~~App Icon~~
 - ~~Show "1 of 14" and so on when multiple files are dropped~~
 - ~~Get navigation buttons working~~
+
+## Bugs
+- Remove all sorting info utility
+- Fetch artwork again
+- ~~Mark Various Artists as a compilation~~
+- ~~Set release date to that of album~~
