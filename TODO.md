@@ -5,6 +5,7 @@
 - Proper icons for right/left buttons (like iTunes)
 - Sorting for search results
 - Ability to select different iTunes stores
+- Make navigation buttons system icons https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/
 - ~~Handle non-m4a files being dropped~~
 - ~~Artwork selection~~
 - ~~Artwork saving (requires updates to `M4ATools`)~~
