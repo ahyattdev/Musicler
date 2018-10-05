@@ -27,9 +27,9 @@ class MusicDropView: NSView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let sourceDragMask = sender.draggingSourceOperationMask()
+        let sourceDragMask = sender.draggingSourceOperationMask
         
-        let pasteboard = sender.draggingPasteboard()
+        let pasteboard = sender.draggingPasteboard
         
         if let types = pasteboard.types {
             if types.contains(.fileURL) &&

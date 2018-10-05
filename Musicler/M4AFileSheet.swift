@@ -87,7 +87,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             let result = state.selectedResult!
             result.writeMetadata(m4aFile: state.file)
         }
-        dismissViewController(self)
+        dismiss(self)
     }
     
     @IBAction func previousFile(_ sender: NSButton) {
@@ -159,7 +159,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
                 
             } catch {
                 presentError(error)
-                dismissViewController(self)
+                dismiss(self)
             }
         }
     }
@@ -264,7 +264,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
         }
     }
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         guard let field = obj.object as? NSTextField else {
             return
         }

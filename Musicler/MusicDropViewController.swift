@@ -20,7 +20,7 @@ class MusicDropViewController: NSViewController {
         }
         
         static let M4AFileSheet =
-            NSStoryboardSegue.Identifier(rawValue: "M4AFileSheet")
+            "M4AFileSheet"
     }
     
     required init?(coder: NSCoder) {
