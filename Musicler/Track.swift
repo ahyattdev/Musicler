@@ -14,7 +14,7 @@ struct Track : Codable {
     let kind: String
     let artistId: String
     let collectionId: Int
-    let trackId: Int
+    let trackId: String
     let artistName: String
     let collectionName: String
     let trackName: String
