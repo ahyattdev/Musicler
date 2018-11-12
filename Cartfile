@@ -1,2 +1,3 @@
 git "https://bitbucket.org/ahyattdev/mp42foundation.git" "disable-bitrate-recalculation"
 git "https://github.com/sparkle-project/Sparkle"
+git "https://github.com/zeplin/LetsMove" "xcode-ten-support"

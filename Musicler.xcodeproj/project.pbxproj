@@ -17,6 +17,8 @@
 		6681A591219A1F0A007F0266 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A590219A1F0A007F0266 /* Sparkle.framework */; };
 		6681A592219A1F35007F0266 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A590219A1F0A007F0266 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6681A594219A276F007F0266 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6681A593219A276F007F0266 /* dsa_pub.pem */; };
+		6681A596219A356A007F0266 /* LetsMove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A595219A356A007F0266 /* LetsMove.framework */; };
+		6681A597219A357A007F0266 /* LetsMove.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A595219A356A007F0266 /* LetsMove.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
@@ -45,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6681A597219A357A007F0266 /* LetsMove.framework in Embed Frameworks */,
 				6661A2E9208908DD00B1A669 /* MP42Foundation.framework in Embed Frameworks */,
 				6681A592219A1F35007F0266 /* Sparkle.framework in Embed Frameworks */,
 			);
@@ -62,6 +65,7 @@
 		6661A2E6208908CE00B1A669 /* MP42Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MP42Foundation.framework; path = Carthage/Build/Mac/MP42Foundation.framework; sourceTree = "<group>"; };
 		6681A590219A1F0A007F0266 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		6681A593219A276F007F0266 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		6681A595219A356A007F0266 /* LetsMove.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LetsMove.framework; path = Carthage/Build/Mac/LetsMove.framework; sourceTree = "<group>"; };
 		669871AB208FB190004DA275 /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Screenshots; sourceTree = "<group>"; };
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearcher.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			files = (
 				6661A2EA208908F700B1A669 /* MP42Foundation.framework in Frameworks */,
 				6681A591219A1F0A007F0266 /* Sparkle.framework in Frameworks */,
+				6681A596219A356A007F0266 /* LetsMove.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,7 @@
 		66FC622F2051FE77001BE479 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6681A595219A356A007F0266 /* LetsMove.framework */,
 				6661A2E6208908CE00B1A669 /* MP42Foundation.framework */,
 				6681A590219A1F0A007F0266 /* Sparkle.framework */,
 			);

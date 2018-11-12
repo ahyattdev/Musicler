@@ -48,7 +48,7 @@
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>SUFeedURL</key>
-	<string>https://andrewhyatt.us/musicler/updates/appcast.xml</string>
+	<string>https://www.andrewhyatt.us/musicler/updates/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>NSPrincipalClass</key>
