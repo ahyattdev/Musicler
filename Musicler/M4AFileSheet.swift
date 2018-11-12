@@ -151,7 +151,6 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             let url = URL(fileURLWithPath: filePath)
             do {
                 let m4aFile = try MP42File(url: url)
-                m4aFile.recalculateBitrate = false
                 
                 let state = EditorState(path: filePath, file: m4aFile)
                 states[filePath] = state

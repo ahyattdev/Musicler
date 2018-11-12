@@ -123,7 +123,9 @@ class iTunesResult {
         m4aFile.optimize()
         
         do {
-            try m4aFile.update(options: nil)
+            var options = [:] as [String : Any]
+            options[MP42DontUpdateBitrate] = true
+            try m4aFile.update(options: options)
         } catch {
             print("\(track.trackName): Failed to write to file. \(error)")
         }

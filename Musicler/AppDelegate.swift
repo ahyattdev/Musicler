@@ -86,8 +86,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             for item in itemsToRemove {
                                 file.metadata.removeItem(item)
                             }
-                            file.recalculateBitrate = false
-                            try file.update(options: nil)
+                            var options = [:] as [String : Any]
+                            options[MP42DontUpdateBitrate] = true
+                            try file.update(options: options)
                         } catch {
                             print(error)
                         }
