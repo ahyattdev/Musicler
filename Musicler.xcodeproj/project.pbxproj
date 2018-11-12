@@ -14,6 +14,9 @@
 		661C9F932075A8E200C9E5B7 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C9F922075A8E200C9E5B7 /* Wrapper.swift */; };
 		6661A2E9208908DD00B1A669 /* MP42Foundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6661A2E6208908CE00B1A669 /* MP42Foundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6661A2EA208908F700B1A669 /* MP42Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6661A2E6208908CE00B1A669 /* MP42Foundation.framework */; };
+		6681A591219A1F0A007F0266 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A590219A1F0A007F0266 /* Sparkle.framework */; };
+		6681A592219A1F35007F0266 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6681A590219A1F0A007F0266 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6681A594219A276F007F0266 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6681A593219A276F007F0266 /* dsa_pub.pem */; };
 		66C98EFC2051FF22008FDE02 /* iTunesSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */; };
 		66DBC9C72035F912008B0933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBC9C62035F912008B0933 /* AppDelegate.swift */; };
 		66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DBC9C82035F912008B0933 /* Assets.xcassets */; };
@@ -43,6 +46,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6661A2E9208908DD00B1A669 /* MP42Foundation.framework in Embed Frameworks */,
+				6681A592219A1F35007F0266 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +60,8 @@
 		661C9F902075A7E700C9E5B7 /* iTunesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesResult.swift; sourceTree = "<group>"; };
 		661C9F922075A8E200C9E5B7 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		6661A2E6208908CE00B1A669 /* MP42Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MP42Foundation.framework; path = Carthage/Build/Mac/MP42Foundation.framework; sourceTree = "<group>"; };
+		6681A590219A1F0A007F0266 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		6681A593219A276F007F0266 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		669871AB208FB190004DA275 /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Screenshots; sourceTree = "<group>"; };
 		669FF014204F508700E899E3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearcher.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6661A2EA208908F700B1A669 /* MP42Foundation.framework in Frameworks */,
+				6681A591219A1F0A007F0266 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +147,7 @@
 				661C9F922075A8E200C9E5B7 /* Wrapper.swift */,
 				66C98EFB2051FF22008FDE02 /* iTunesSearcher.swift */,
 				661C9F902075A7E700C9E5B7 /* iTunesResult.swift */,
+				6681A593219A276F007F0266 /* dsa_pub.pem */,
 			);
 			path = Musicler;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				6661A2E6208908CE00B1A669 /* MP42Foundation.framework */,
+				6681A590219A1F0A007F0266 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DBC9C92035F912008B0933 /* Assets.xcassets in Resources */,
+				6681A594219A276F007F0266 /* dsa_pub.pem in Resources */,
 				66FC622420519996001BE479 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
