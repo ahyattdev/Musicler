@@ -12,9 +12,9 @@ struct Track : Codable {
     
     let wrapperType: String
     let kind: String
-    let artistId: String
+    let artistId: Int
     let collectionId: Int
-    let trackId: String
+    let trackId: Int
     let artistName: String
     let collectionName: String
     let trackName: String

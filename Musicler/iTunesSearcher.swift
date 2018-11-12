@@ -91,7 +91,9 @@ class iTunesSearcher {
                     }
                 } catch {
                     print("Failed to decode JSON! \(error)")
-                    self.viewController.presentError(error)
+                    DispatchQueue.main.async {
+                        self.viewController.presentError(error)
+                    }
                 }
             } else {
                 DispatchQueue.main.async {

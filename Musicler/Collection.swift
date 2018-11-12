@@ -12,8 +12,8 @@ struct Collection : Codable {
     
     let wrapperType: String
     let collectionType: String
-    let artistId: String
-    let collectionId: String
+    let artistId: Int
+    let collectionId: Int
     let amgArtistId: Int?
     let artistName: String
     let collectionName: String

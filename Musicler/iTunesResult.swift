@@ -105,6 +105,10 @@ class iTunesResult {
                              .integer))
         }
         
+        metadata.append((MP42MetadataKeyArtistID,
+                         track.artistId as NSCopying & NSObjectProtocol,
+                         .integer))
+        
         // Remove previous artwork
         for item in m4aFile.metadata.items {
             if item.imageValue != nil {
@@ -115,6 +119,8 @@ class iTunesResult {
         for metadata in metadata {
             m4aFile.metadata.addItem(MP42MetadataItem(identifier: metadata.0, value: metadata.1, dataType: metadata.2, extendedLanguageTag: nil))
         }
+        
+        m4aFile.optimize()
         
         do {
             try m4aFile.update(options: nil)
