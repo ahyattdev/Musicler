@@ -8,6 +8,7 @@
 
 import Cocoa
 import MP42Foundation
+import LetsMove
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        PFMoveToApplicationsFolderIfNecessary()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
