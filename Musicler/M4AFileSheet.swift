@@ -204,7 +204,7 @@ class M4AFileSheet: NSViewController, NSTableViewDelegate, NSTableViewDataSource
             case "Track":
                 var name = result.track.trackName
                 if result.track.trackExplicitness == "explicit" {
-                    name += " (E)"
+                    name! += " (E)"
                 }
                 return name
             case "Artist":

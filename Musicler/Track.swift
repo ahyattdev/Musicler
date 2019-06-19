@@ -11,35 +11,35 @@ import Foundation
 struct Track : Codable {
     
     let wrapperType: String
-    let kind: String
+    let kind: String?
     let artistId: Int
     let collectionId: Int
-    let trackId: Int
+    let trackId: Int?
     let artistName: String
     let collectionName: String
-    let trackName: String
+    let trackName: String?
     let collectionCensoredName: String
-    let trackCensoredName: String
+    let trackCensoredName: String?
     let artistViewUrl: URL?
     let collectionViewUrl: URL
-    let trackViewUrl: URL
+    let trackViewUrl: URL?
     let previewUrl: URL?
-    let artworkUrl30: URL
-    let artworkUrl60: URL
-    let artworkUrl100: URL
+    let artworkUrl30: URL?
+    let artworkUrl60: URL?
+    let artworkUrl100: URL?
     let collectionPrice: Double?
     let trackPrice: Double?
     let releaseDate: String
     let collectionExplicitness: String
-    let trackExplicitness: String
-    let discCount: Int
-    let discNumber: Int
-    let trackCount: Int
-    let trackNumber: Int
+    let trackExplicitness: String?
+    let discCount: Int?
+    let discNumber: Int?
+    let trackCount: Int?
+    let trackNumber: Int?
     let trackTimeMillis: Int?
     let country: String
     let currency: String
     let primaryGenreName: String?
-    let isStreamable: Bool
+    let isStreamable: Bool?
     
 }

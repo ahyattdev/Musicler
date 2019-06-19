@@ -36,19 +36,19 @@ class iTunesResult {
     func writeMetadata(m4aFile: MP42File) {
         guard /*let artist = artist,*/ let collection = collection,
             let cover = downloadedArtwork else {
-            print("\(track.trackName): Didn't fetch the rest of the metadata!")
+            print("\(track.trackName!): Didn't fetch the rest of the metadata!")
             return
         }
         
         guard let art = MP42Image(image: cover) else {
-            print("\(track.trackName): Couldn't convert artwork!")
+            print("\(track.trackName!): Couldn't convert artwork!")
             return
         }
         
         var metadata = [
             
             (MP42MetadataKeyName,
-                         track.trackName as NSCopying & NSObjectProtocol,
+             track.trackName! as NSCopying & NSObjectProtocol,
                          MP42MetadataItemDataType.string),
             
             (MP42MetadataKeyArtist,
@@ -127,14 +127,14 @@ class iTunesResult {
             options[MP42DontUpdateBitrate] = true
             try m4aFile.update(options: options)
         } catch {
-            print("\(track.trackName): Failed to write to file. \(error)")
+            print("\(track.trackName!): Failed to write to file. \(error)")
         }
     }
     
     func getDisplayData() -> [MetadataEntry] {
         var metadata = [MetadataEntry]()
         
-        metadata.append(MetadataEntry(title: "Name", value: track.trackName))
+        metadata.append(MetadataEntry(title: "Name", value: track.trackName!))
         metadata.append(MetadataEntry(title: "Artist", value: track.artistName))
         if let collection = collection {
             metadata.append(MetadataEntry(title: "Album Artist", value: collection.artistName))
@@ -142,8 +142,8 @@ class iTunesResult {
         metadata.append(MetadataEntry(title: "Album", value: track.collectionName))
         metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName ?? "No Genre"))
         metadata.append(MetadataEntry(title: "Release Date", value: track.releaseDate))
-        metadata.append(MetadataEntry(title: "Track Number", value: "\(track.trackNumber) of \(track.trackCount)"))
-        metadata.append(MetadataEntry(title: "Disc Number", value: "\(track.discNumber) of \(track.discCount)"))
+        metadata.append(MetadataEntry(title: "Track Number", value: "\(String(describing: track.trackNumber)) of \(String(describing: track.trackCount))"))
+        metadata.append(MetadataEntry(title: "Disc Number", value: "\(String(describing: track.discNumber)) of \(String(describing: track.discCount))"))
         if let collection = collection {
             metadata.append(MetadataEntry(title: "Copyright", value: collection.copyright))
         }

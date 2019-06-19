@@ -42,7 +42,7 @@ class iTunesSearcher {
             
             do {
                 let data = try Data.init(contentsOf: url)
-                
+
                 let json = try JSONDecoder().decode(Wrapper<Track>.self, from: data)
                 
                 for track in json.results {
@@ -56,12 +56,27 @@ class iTunesSearcher {
                 }
                 
             }
+
+            // Because apparently now the track name is optional...
+            results = self.filterOutInvalid(results: results)
+
             DispatchQueue.main.async {
                 completion(results)
             }
         }
     }
     
+    func filterOutInvalid(results: [iTunesResult]) -> [iTunesResult] {
+        var output = [iTunesResult]()
+        for result in results {
+            let track = result.track
+            if track.trackName != nil && track.trackCensoredName != nil {
+                output.append(result)
+            }
+        }
+        return output
+    }
+
     func loadMoreMetadata(result: iTunesResult, completion: @escaping () -> ()) {
         DispatchQueue.global(qos: .userInitiated).async {
             if result.collection == nil {
