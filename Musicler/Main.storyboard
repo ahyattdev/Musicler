@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14854.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -581,7 +581,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -675,7 +675,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wQi-Hq-9ww">
-                                <rect key="frame" x="232" y="165" width="140" height="22"/>
+                                <rect key="frame" x="232" y="165" width="140" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drop Music Here" id="2ks-e7-AsO">
                                     <font key="font" size="18" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -693,7 +693,7 @@
                                 </connections>
                             </button>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-Lr-WeQ">
-                                <rect key="frame" x="238" y="195" width="128" height="128"/>
+                                <rect key="frame" x="238" y="194" width="128" height="129"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="lYi-Sq-6EW"/>
                                 </constraints>
@@ -728,7 +728,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uga-nb-Wl1">
-                                <rect key="frame" x="437" y="12" width="90" height="32"/>
+                                <rect key="frame" x="437" y="14" width="90" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="xQH-r3-Zmv"/>
                                 </constraints>
@@ -744,7 +744,7 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fhj-TL-PyH">
-                                <rect key="frame" x="347" y="12" width="90" height="32"/>
+                                <rect key="frame" x="347" y="14" width="90" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="dEb-i4-MYP"/>
                                 </constraints>
@@ -760,7 +760,7 @@ Gw
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OmG-am-VjR">
-                                <rect key="frame" x="20" y="434" width="422" height="22"/>
+                                <rect key="frame" x="20" y="435" width="422" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="0nC-xD-vQM">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -782,13 +782,13 @@ Gw
                                 </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFn-ie-4l7">
-                                <rect key="frame" x="20" y="219" width="501" height="207"/>
+                                <rect key="frame" x="20" y="219" width="501" height="208"/>
                                 <clipView key="contentView" id="NGt-E3-7RG">
-                                    <rect key="frame" x="1" y="0.0" width="499" height="206"/>
+                                    <rect key="frame" x="1" y="0.0" width="499" height="207"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="407-J3-20P" id="Ona-hw-tij" userLabel="Results Table View">
-                                            <rect key="frame" x="0.0" y="0.0" width="499" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="499" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -946,7 +946,7 @@ Gw
                                 </tableHeaderView>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGO-DG-P3z">
-                                <rect key="frame" x="95" y="22" width="252" height="17"/>
+                                <rect key="frame" x="95" y="23" width="252" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ZFj-5x-Has">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1001,6 +1001,6 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSApplicationIcon" width="32" height="32"/>
     </resources>
 </document>

@@ -142,8 +142,15 @@ class iTunesResult {
         metadata.append(MetadataEntry(title: "Album", value: track.collectionName))
         metadata.append(MetadataEntry(title: "Genre", value: track.primaryGenreName ?? "No Genre"))
         metadata.append(MetadataEntry(title: "Release Date", value: track.releaseDate))
-        metadata.append(MetadataEntry(title: "Track Number", value: "\(String(describing: track.trackNumber)) of \(String(describing: track.trackCount))"))
-        metadata.append(MetadataEntry(title: "Disc Number", value: "\(String(describing: track.discNumber)) of \(String(describing: track.discCount))"))
+        
+        let trackNumber = track.trackNumber != nil ? String(describing: track.trackNumber!) : "N/A"
+        let trackCount = track.trackCount != nil ? String(describing: track.trackCount!) : "N/A"
+        
+        let discNumber = track.trackNumber != nil ? String(describing: track.discNumber!) : "N/A"
+        let discCount = track.trackCount != nil ? String(describing: track.discCount!) : "N/A"
+        
+        metadata.append(MetadataEntry(title: "Track Number", value: "\(trackNumber) of \(trackCount)"))
+        metadata.append(MetadataEntry(title: "Disc Number", value: "\(discNumber) of \(discCount)"))
         if let collection = collection {
             metadata.append(MetadataEntry(title: "Copyright", value: collection.copyright))
         }
