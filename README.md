@@ -1,4 +1,4 @@
-# Musicler
+# Musicler (NO LONGER MAINTAINED)
 
 ![The icon of Musicler][icon]
 
